@@ -45,7 +45,7 @@ char* e_strncat(char* dest, const char* src, e_size_t n) {
 ===================================================================================*/
 char* e_strchr(const char* str, int c) {
   while (c != *str && *str != '\0') str++;
-  if (*str == '\0') str = e_NULL;
+  if (*str == '\0') str = E_NULL;
   return (char*)str;
 }
 
