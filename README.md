@@ -2,8 +2,8 @@
 
 | Coding Status | No. | Function | Description |
 | ------ | ------ | ------ | ------ |
-| *️⃣ | 1 | void *memchr(const void *str, int c, size_t n) | Searches for the first occurrence of the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str. |
-| *️⃣ | 2 | int memcmp(const void *str1, const void *str2, size_t n) | Compares the first n bytes of str1 and str2. |
+| ✅ | 1 | void *memchr(const void *str, int c, size_t n) | Searches for the first occurrence of the character c (an unsigned char) in the first n bytes of the string pointed to, by the argument str. |
+| ✅ | 2 | int memcmp(const void *str1, const void *str2, size_t n) | Compares the first n bytes of str1 and str2. |
 | *️⃣ | 3 | void *memcpy(void *dest, const void *src, size_t n) | Copies n characters from src to dest. |
 | *️⃣ | 4 | void *memmove(void *dest, const void *src, size_t n) | Another function to copy n characters from str2 to str1. |
 | *️⃣ | 5 | void *memset(void *str, int c, size_t n) | Copies the character c (an unsigned char) to the first n characters of the string pointed to, by the argument str. |
