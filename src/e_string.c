@@ -11,7 +11,7 @@
 
 /*==============================================================================
               1. void* memchr(const void* str, int c, size_t n):
-    Searches for the first occurrence of the character c (an unsigned char)
+    Searching for the first occurrence of the character c (an unsigned char)
       in the first n bytes of the string pointed to, by the argument str.
 ==============================================================================*/
 void* e_memchr(const void* str, int c, e_size_t n) {
@@ -19,7 +19,7 @@ void* e_memchr(const void* str, int c, e_size_t n) {
   char ch = (char)c;
   for (e_size_t i = 0; i < n && ch != *ptr && *ptr; i++) ptr++;
   if (ptr == str + n) ptr = E_NULL;
-  return ptr;
+  return (void*)ptr;
 }
 
 /*==============================================================================
@@ -36,6 +36,25 @@ int e_memcmp(const void* str1, const void* str2, e_size_t n) {
 }
 
 /*==============================================================================
+            3. void* memcpy(void* dest, const void* src, size_t n):
+                  Copying n characters from src to dest.
+==============================================================================*/
+void* e_memcpy(void* dest, const void* src, e_size_t n) {
+  char* ptr_dest = (char*)dest;
+  const char* ptr_src = (const char*)src;
+  while (n--) *ptr_dest++ = *ptr_src++;
+  return dest;
+}
+
+/*==============================================================================
+          4. void* memmove(void* dest, const void* src, size_t n):
+          Another function to copy n characters from str2 to str1.
+==============================================================================*/
+// void* e_memmove(void* dest, const void* src, e_size_t n) {
+
+// }
+
+/*==============================================================================
                 6. char* strcat(char* dest, const char* src):
               Appending the string pointed to, by src to the end
                       of the string pointed to by dest.
@@ -43,9 +62,16 @@ int e_memcmp(const void* str1, const void* str2, e_size_t n) {
 char* e_strcat(char* dest, const char* src) {
   // Как отслеживать переполнение массива dest, если пользователь выделил для
   // этого массива недостаточно памяти?
+
+  // One realisation of function:
+  // e_size_t n = e_strlen(src);
+  // dest = e_strncat(dest, src, n);
+
+  // Second (faster) realisation of function:
   char* tmp = dest + e_strlen(dest);
   while (*src) *tmp++ = *src++;
   *tmp = '\0';
+
   return dest;
 }
 
@@ -56,11 +82,7 @@ char* e_strcat(char* dest, const char* src) {
 ==============================================================================*/
 char* e_strncat(char* dest, const char* src, e_size_t n) {
   char* tmp = dest + e_strlen(dest);
-  e_size_t count = 0;
-  while (*src && count < n) {
-    *tmp++ = *src++;
-    count++;
-  }
+  while (*src && n--) *tmp++ = *src++;
   *tmp = '\0';
   return dest;
 }
@@ -113,9 +135,7 @@ char* e_strcpy(char* dest, const char* src) {
     Copying up to n characters from the string pointed to, by src to dest.
 ==============================================================================*/
 char* e_strncpy(char* dest, const char* src, e_size_t n) {
-  for (e_size_t i = 0; *src && i < n; i++) {
-    *(dest + i) = *src++;
-  }
+  for (e_size_t i = 0; *src && i < n; i++) *(dest + i) = *src++;
   return dest;
 }
 
@@ -126,7 +146,6 @@ char* e_strncpy(char* dest, const char* src, e_size_t n) {
 ==============================================================================*/
 e_size_t e_strlen(const char* str) {
   e_size_t count = 0;
-  // for (; *str++; count++) {}
   while (*str++) count++;
   return count;
 }
