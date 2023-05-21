@@ -42,26 +42,36 @@ int main() {
   /*============================================================================
       3 memmove()
   ============================================================================*/
-  // char src[8] = "source_";
-  // char dest1[11] = "1234567890";
-  // char dest2[] = "non_orig";
-
-  // int n = 3;
-  // printf("src before memmove(): %s", src);
-  // printf("\nsrc after memmove(): %s\ndest after memmove(): %s\n", (char*)memmove(dest1 + 4, dest1 + 3, n), dest1);
-  // printf("e_memmove(): %s", (char*)e_memcpy(src, dest2, n));
-
-  /*============================================================================
-      4 memmove() vs memcpy()
-  ============================================================================*/
+  char src[8] = "source_";
   char dest1[11] = "1234567890";
   char dest2[11] = "1234567890";
 
   int n = 3;
-  printf("\nmemcpy() result: %s\ndest1 after memcpy(): %s\n\n",
-          (char*)memcpy(dest1 + 3, dest1 + 4, n), dest1);
-  printf("memmove() result: %s\ndest1 after memmove(): %s\n\n",
-          (char*)memmove(dest2 + 3, dest2 + 4, n), dest2);
+  // printf("src before memmove(): %s", src);
+  printf("\nmemmove() result: %s\ndest1 after memmove(): %s\n", 
+        (char*)memmove(dest1 + 5, src, n), dest1);
+  printf("\ne_memmove() result: %s\ndest2 after e_memmove(): %s\n", 
+        (char*)e_memmove(dest2 + 5, src, n), dest2);
+
+  /*============================================================================
+      4 memmove() vs memcpy()
+  ============================================================================*/
+  // char dest1[11] = "1234567890";
+  // char dest2[11] = "1234567890";
+
+  // int n = 3;
+  // printf("\nmemcpy() result: %s\ndest1 after memcpy(): %s\n\n",
+  //         (char*)memcpy(dest1 + 3, dest1 + 4, n), dest1);
+  // printf("memmove() result: %s\ndest1 after memmove(): %s\n\n",
+  //         (char*)memmove(dest2 + 3, dest2 + 4, n), dest2);
+
+  // char str[] = "OpenAI is great!";
+  // memmove(str + 3, str, 10);
+  // printf("Using memmove: %s\n", str);
+
+  // char str2[] = "OpenAI is great!";
+  // memcpy(str2 + 3, str2, 10);
+  // printf("Using memcpy: %s\n", str2);
 
   /*============================================================================
       6 strcat()

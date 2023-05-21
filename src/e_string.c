@@ -40,9 +40,9 @@ int e_memcmp(const void* str1, const void* str2, e_size_t n) {
                   Copying n characters from src to dest.
 ==============================================================================*/
 void* e_memcpy(void* dest, const void* src, e_size_t n) {
-  char* ptr_dest = (char*)dest + n - 1;
-  const char* ptr_src = (const char*)src + n - 1;
-  while (n--) *ptr_dest-- = *ptr_src--;
+  char* ptr_dest = (char*)dest;
+  const char* ptr_src = (const char*)src;
+  while (n--) *ptr_dest++ = *ptr_src++;
   return dest;
 }
 
