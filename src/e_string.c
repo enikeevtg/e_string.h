@@ -40,9 +40,9 @@ int e_memcmp(const void* str1, const void* str2, e_size_t n) {
                   Copying n characters from src to dest.
 ==============================================================================*/
 void* e_memcpy(void* dest, const void* src, e_size_t n) {
-  char* ptr_dest = (char*)dest;
-  const char* ptr_src = (const char*)src;
-  while (n--) *ptr_dest++ = *ptr_src++;
+  char* ptr_dest = (char*)dest + n - 1;
+  const char* ptr_src = (const char*)src + n - 1;
+  while (n--) *ptr_dest-- = *ptr_src--;
   return dest;
 }
 
@@ -50,9 +50,12 @@ void* e_memcpy(void* dest, const void* src, e_size_t n) {
           4. void* memmove(void* dest, const void* src, size_t n):
           Another function to copy n characters from str2 to str1.
 ==============================================================================*/
-// void* e_memmove(void* dest, const void* src, e_size_t n) {
-
-// }
+void* e_memmove(void* dest, const void* src, e_size_t n) {
+  char* ptr_dest = (char*)dest + n - 1;
+  const char* ptr_src = (const char*)src + n - 1;
+  while (n--) *ptr_dest-- = *ptr_src--;
+  return dest;
+}
 
 /*==============================================================================
                 6. char* strcat(char* dest, const char* src):
@@ -124,9 +127,7 @@ int e_strncmp(const char* str1, const char* str2, e_size_t n) {
                 Copying the string pointed to, by src to dest.
 ==============================================================================*/
 char* e_strcpy(char* dest, const char* src) {
-  for (e_size_t i = 0; *src; i++) {
-    *(dest + i) = *src++;
-  }
+  for (e_size_t i = 0; *src; i++) *(dest + i) = *src++;
   return dest;
 }
 
@@ -135,7 +136,7 @@ char* e_strcpy(char* dest, const char* src) {
     Copying up to n characters from the string pointed to, by src to dest.
 ==============================================================================*/
 char* e_strncpy(char* dest, const char* src, e_size_t n) {
-  for (e_size_t i = 0; *src && i < n; i++) *(dest + i) = *src++;
+  for (e_size_t i = 0; /* *src && */ i < n; i++) *(dest + i) = *src++;
   return dest;
 }
 

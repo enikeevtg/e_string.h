@@ -29,25 +29,39 @@ int main() {
   /*============================================================================
       3 memcpy()
   ============================================================================*/
-  // char src[] = "source_";
-  // char dest1[] = "original";
-  // char dest2[] = "non_orig";
+  //char src[] = "source_";
+  // char dest1[] = "1234567890";
+  // char dest2[] = "1234567890";
 
-  // int n = 5;
-  // printf("memcpy(): %s\n", (char*)memcpy(src, dest1, n));
-  // printf("e_memcpy(): %s", (char*)e_memcpy(src, dest2, n));
+  // int n = 4;
+  // (char*)memcpy(dest1 + 2, dest1, n);
+  // printf("memcpy(): %s\n", dest1);
+  // (char*)e_memcpy(dest2 + 2, dest2, n);
+  // printf("e_memcpy(): %s", dest2);
 
   /*============================================================================
       3 memmove()
   ============================================================================*/
   // char src[8] = "source_";
-  // char dest1[9] = "original";
-  // //char dest2[] = "non_orig";
+  // char dest1[11] = "1234567890";
+  // char dest2[] = "non_orig";
 
-  // int n = 6;
+  // int n = 3;
   // printf("src before memmove(): %s", src);
-  // printf("\nsrc after memmove(): %s\ndest after memmove(): %s\n", src, (char*)memmove(src, dest1, n));
-  // //printf("e_memmove(): %s", (char*)e_memcpy(src, dest2, n));
+  // printf("\nsrc after memmove(): %s\ndest after memmove(): %s\n", (char*)memmove(dest1 + 4, dest1 + 3, n), dest1);
+  // printf("e_memmove(): %s", (char*)e_memcpy(src, dest2, n));
+
+  /*============================================================================
+      4 memmove() vs memcpy()
+  ============================================================================*/
+  char dest1[11] = "1234567890";
+  char dest2[11] = "1234567890";
+
+  int n = 3;
+  printf("\nmemcpy() result: %s\ndest1 after memcpy(): %s\n\n",
+          (char*)memcpy(dest1 + 3, dest1 + 4, n), dest1);
+  printf("memmove() result: %s\ndest1 after memmove(): %s\n\n",
+          (char*)memmove(dest2 + 3, dest2 + 4, n), dest2);
 
   /*============================================================================
       6 strcat()
@@ -57,7 +71,7 @@ int main() {
   // strcat(dest_s21, "ertydhfrty", 11);
   // printf("dest_s21: %s\n\n", dest_s21);
 
-  char* str = (char*)calloc(1, sizeof(char));
+  // char* str = (char*)calloc(1, sizeof(char));
 
   // strcat(str, "Techie ");
   // strcat(str, "Delight ");
@@ -92,20 +106,20 @@ int main() {
   // strncat(str, "Interviews", 8);
   //   puts(str);
 
-  e_strncat(str, "Techie ", 2);
-    puts(str);
-  e_strncat(str, "Delight ", 3);
-    puts(str);
-  e_strncat(str, "– ", 4);
-    puts(str);
-  e_strncat(str, "Ace ", 1);
-    puts(str);
-  e_strncat(str, "the ", 2);
-    puts(str);
-  e_strncat(str, "Technical ", 7);
-    puts(str);
-  e_strncat(str, "Interviews", 8);
-    puts(str);
+  // e_strncat(str, "Techie ", 2);
+  //   puts(str);
+  // e_strncat(str, "Delight ", 3);
+  //   puts(str);
+  // e_strncat(str, "– ", 4);
+  //   puts(str);
+  // e_strncat(str, "Ace ", 1);
+  //   puts(str);
+  // e_strncat(str, "the ", 2);
+  //   puts(str);
+  // e_strncat(str, "Technical ", 7);
+  //   puts(str);
+  // e_strncat(str, "Interviews", 8);
+  //   puts(str);
 
   return 0;
 }
