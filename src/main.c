@@ -40,18 +40,18 @@ int main() {
   // printf("e_memcpy(): %s", dest2);
 
   /*============================================================================
-      3 memmove()
+      4 memmove()
   ============================================================================*/
-  // char src[8] = "source_";
-  char dest1[11] = "1234567890";
-  char dest2[11] = "1234567890";
+  // // char src[8] = "source_";
+  // char dest1[11] = "1234567890";
+  // char dest2[11] = "1234567890";
 
-  int n = 3;
-  // printf("src before memmove(): %s", src);
-  printf("\nmemmove() result: %s\ndest1 after memmove(): %s\n",
-         (char*)memmove(dest1 + 4, dest1 + 2, n), dest1);
-  printf("\ne_memmove() result: %s\ndest2 after e_memmove(): %s\n",
-         (char*)e_memmove(dest2 + 4, dest2 + 2, n), dest2);
+  // int n = 3;
+  // // printf("src before memmove(): %s", src);
+  // printf("\nmemmove() result: %s\ndest1 after memmove(): %s\n",
+  //        (char*)memmove(dest1 + 4, dest1 + 2, n), dest1);
+  // printf("\ne_memmove() result: %s\ndest2 after e_memmove(): %s\n",
+  //        (char*)e_memmove(dest2 + 4, dest2 + 2, n), dest2);
 
   /*============================================================================
       4 memmove() vs memcpy()
@@ -72,6 +72,18 @@ int main() {
   // char str2[] = "OpenAI is great!";
   // memcpy(str2 + 3, str2, 10);
   // printf("Using memcpy: %s\n", str2);
+
+  /*============================================================================
+      5 memset()
+  ============================================================================*/
+  // char dest1[] = "1234567890";
+  // char dest2[] = "1234567890";
+  // int c = 88;
+  // size_t n = 5;
+  // printf("memset() result: %s\ndest1 after memmset(): %s\n",
+  //        (char*)memset(dest1, c, n), dest1);
+  // printf("e_memset() result: %s\ndest2 after e_memmset(): %s\n",
+  //        (char*)e_memset(dest2, c, n), dest2);
 
   /*============================================================================
       6 strcat()
@@ -130,6 +142,16 @@ int main() {
   //   puts(str);
   // e_strncat(str, "Interviews", 8);
   //   puts(str);
+
+  /*============================================================================
+      13 strcspn()
+  ============================================================================*/
+  char str1[] = "1234a56b78C90d";
+  char str2[] = "ABCD";
+  printf("strcspn result: %ld\n",
+         strcspn((const char*)str1, (const char*)str2));
+  printf("e_strcspn result: %ld\n",
+         e_strcspn((const char*)str1, (const char*)str2));
 
   return 0;
 }

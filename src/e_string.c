@@ -6,7 +6,7 @@
  */
 
 #include "e_string.h"
-
+#include <stdio.h>
 // #include <string.h>
 
 /*==============================================================================
@@ -18,7 +18,7 @@ void* e_memchr(const void* str, int c, e_size_t n) {
   char* ptr = (char*)str;
   char ch = (char)c;
   for (e_size_t i = 0; i < n && ch != *ptr && *ptr; i++) ptr++;
-  if (ptr == str + n) ptr = E_NULL;
+  if (ptr == (char*)str + n) ptr = E_NULL;
   return (void*)ptr;
 }
 
@@ -62,14 +62,28 @@ void* e_memmove(void* dest, const void* src, e_size_t n) {
 }
 
 /*==============================================================================
+                5. void* memset(void* str, int c, size_t n):
+          Copying the character c (an unsigned char) to the first n
+          characters of the string pointed to, by the argument str.
+==============================================================================*/
+void* e_memset(void* str, int c, e_size_t n) {
+  char* ptr = (char*)str;
+  while (n-- && *ptr) *ptr++ = c;
+  if (!*ptr) {
+    *ptr++ = c;
+    *ptr++ = '\n';
+    *ptr++ = '\0';
+  }  // hardcode "\_(o_o)_/"
+  return str;
+}
+
+
+/*==============================================================================
                 6. char* strcat(char* dest, const char* src):
               Appending the string pointed to, by src to the end
                       of the string pointed to by dest.
 ==============================================================================*/
 char* e_strcat(char* dest, const char* src) {
-  // Как отслеживать переполнение массива dest, если пользователь выделил для
-  // этого массива недостаточно памяти?
-
   // One realisation of function:
   // e_size_t n = e_strlen(src);
   // dest = e_strncat(dest, src, n);
@@ -78,7 +92,6 @@ char* e_strcat(char* dest, const char* src) {
   char* tmp = dest + e_strlen(dest);
   while (*src) *tmp++ = *src++;
   *tmp = '\0';
-
   return dest;
 }
 
@@ -148,6 +161,26 @@ char* e_strncpy(char* dest, const char* src, e_size_t n) {
   *ptr = '\0';
   return dest;
 }
+
+/*==============================================================================
+            13. size_t strcspn(const char* str1, const char* str2):
+          Calculates the length of the initial segment of str1 which
+                consists entirely of characters not in str2.
+==============================================================================*/
+e_size_t e_strcspn(const char* str1, const char* str2) {
+  const char* ptr1 = str1;
+  int found = 0;
+  while (*ptr1 && !found) {
+    const char* ptr2 = str2;
+    while (*ptr2 && *ptr2 != *ptr1) ptr2++;
+    if (!*ptr2)
+      ptr1++;
+    else
+      found = 1;
+  }
+  return ptr1 - str1;
+}
+
 
 /*==============================================================================
                     15. size_t strlen(const char* str):
