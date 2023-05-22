@@ -6,8 +6,6 @@
  */
 
 #include "e_string.h"
-#include <stdio.h>
-// #include <string.h>
 
 /*==============================================================================
               1. void* memchr(const void* str, int c, size_t n):
@@ -76,7 +74,6 @@ void* e_memset(void* str, int c, e_size_t n) {
   }  // hardcode "\_(o_o)_/"
   return str;
 }
-
 
 /*==============================================================================
                 6. char* strcat(char* dest, const char* src):
@@ -164,7 +161,7 @@ char* e_strncpy(char* dest, const char* src, e_size_t n) {
 
 /*==============================================================================
             13. size_t strcspn(const char* str1, const char* str2):
-          Calculates the length of the initial segment of str1 which
+          Calculating the length of the initial segment of str1 which
                 consists entirely of characters not in str2.
 ==============================================================================*/
 e_size_t e_strcspn(const char* str1, const char* str2) {
@@ -181,6 +178,17 @@ e_size_t e_strcspn(const char* str1, const char* str2) {
   return ptr1 - str1;
 }
 
+/*==============================================================================
+                      14. char* strerror(int errnum):
+      Searching an internal array for the error number errnum and returns
+  a pointer to an error message string. You need to declare macros containing
+        arrays of error messages for mac and linux operating systems.
+          Error descriptions are available in the original library.
+          Checking the current OS is carried out using directives.
+==============================================================================*/
+// char* e_strerror(int errnum) {
+
+// }
 
 /*==============================================================================
                     15. size_t strlen(const char* str):

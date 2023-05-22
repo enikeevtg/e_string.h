@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+// #define LINUX
 #include "e_string.h"
 
 int main() {
@@ -114,44 +114,63 @@ int main() {
   // puts(str);
 
   // strncat(str, "Techie ", 2);
-  //   puts(str);
+  // puts(str);
   // strncat(str, "Delight ", 3);
-  //   puts(str);
+  // puts(str);
   // strncat(str, "– ", 4);
-  //   puts(str);
+  // puts(str);
   // strncat(str, "Ace ", 1);
-  //   puts(str);
+  // puts(str);
   // strncat(str, "the ", 2);
-  //   puts(str);
+  // puts(str);
   // strncat(str, "Technical ", 7);
-  //   puts(str);
+  // puts(str);
   // strncat(str, "Interviews", 8);
-  //   puts(str);
+  // puts(str);
 
   // e_strncat(str, "Techie ", 2);
-  //   puts(str);
+  // puts(str);
   // e_strncat(str, "Delight ", 3);
-  //   puts(str);
+  // puts(str);
   // e_strncat(str, "– ", 4);
-  //   puts(str);
+  // puts(str);
   // e_strncat(str, "Ace ", 1);
-  //   puts(str);
+  // puts(str);
   // e_strncat(str, "the ", 2);
-  //   puts(str);
+  // puts(str);
   // e_strncat(str, "Technical ", 7);
-  //   puts(str);
+  // puts(str);
   // e_strncat(str, "Interviews", 8);
-  //   puts(str);
+  // puts(str);
 
   /*============================================================================
       13 strcspn()
   ============================================================================*/
-  char str1[] = "1234a56b78C90d";
-  char str2[] = "ABCD";
-  printf("strcspn result: %ld\n",
-         strcspn((const char*)str1, (const char*)str2));
-  printf("e_strcspn result: %ld\n",
-         e_strcspn((const char*)str1, (const char*)str2));
+  // char str1[] = "1234a56b78C90d";
+  // char str2[] = "ABCD";
+  // printf("strcspn result: %ld\n",
+  //        strcspn((const char*)str1, (const char*)str2));
+  // printf("e_strcspn result: %ld\n",
+  //        e_strcspn((const char*)str1, (const char*)str2));
+
+  /*============================================================================
+      14 strerror()
+  ============================================================================*/
+  // find for error message list
+  //   e_size_t max = 1;
+  //   e_size_t size = 0;
+  //   for (int i = 0; i < 111; i++) {
+  //     printf("\"%s\",  // %d\n", strerror(i), i);
+  //     size = e_strlen(strerror(i));
+  //     if (size > max) max = size;
+  //   }
+  //   printf("%ld\n", max);
+
+
+  for (int i = 0; i < ERRORS_NUM; i++) {
+    printf("\t%d\t\"%s\"\n", i, e_errmsg_list[i]);
+  }
+
 
   return 0;
 }
