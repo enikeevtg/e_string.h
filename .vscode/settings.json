@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "e_errmsg_list.h": "c",
+    "e_string.h": "c"
+  }
+}

@@ -1,7 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+//#include <stdlib.h>
+//#include <string.h>
 // #define LINUX
+
+#include <string.h>
+
 #include "e_string.h"
 
 int main() {
@@ -159,18 +162,14 @@ int main() {
   // find for error message list
   //   e_size_t max = 1;
   //   e_size_t size = 0;
-  //   for (int i = 0; i < 111; i++) {
-  //     printf("\"%s\",  // %d\n", strerror(i), i);
+  //   for (int i = -5; i < 111; i++) {
+  //     printf("\"%s\", /*%d*/  \\\n", strerror(i), i);
   //     size = e_strlen(strerror(i));
   //     if (size > max) max = size;
   //   }
   //   printf("%ld\n", max);
-
-
-  for (int i = 0; i < ERRORS_NUM; i++) {
-    printf("\t%d\t\"%s\"\n", i, e_errmsg_list[i]);
-  }
-
+  for (int i = 0; i < ERRORS_NUM; i++)
+    printf("\t%d\t\"%s\"\n", i, e_strerror(i));
 
   return 0;
 }

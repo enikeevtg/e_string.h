@@ -186,9 +186,13 @@ e_size_t e_strcspn(const char* str1, const char* str2) {
           Error descriptions are available in the original library.
           Checking the current OS is carried out using directives.
 ==============================================================================*/
-// char* e_strerror(int errnum) {
-
-// }
+char* e_strerror(int errnum) {
+  // "Unknown error: errnum"
+  static char res[STRERR_MAX];
+  ERRORLIST;  // WHY DOES IT WORK? "\_(o_o)_/"
+  e_strcpy(res, e_errmsg_list[errnum]);
+  return res;
+}
 
 /*==============================================================================
                     15. size_t strlen(const char* str):
