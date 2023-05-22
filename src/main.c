@@ -29,9 +29,9 @@ int main() {
   /*============================================================================
       3 memcpy()
   ============================================================================*/
-  //char src[] = "source_";
-  // char dest1[] = "1234567890";
-  // char dest2[] = "1234567890";
+  // char src[] = "source_";
+  //  char dest1[] = "1234567890";
+  //  char dest2[] = "1234567890";
 
   // int n = 4;
   // (char*)memcpy(dest1 + 2, dest1, n);
@@ -48,10 +48,10 @@ int main() {
 
   int n = 3;
   // printf("src before memmove(): %s", src);
-  printf("\nmemmove() result: %s\ndest1 after memmove(): %s\n", 
-        (char*)memmove(dest1 + 3, dest1 + 2, n), dest1);
-  printf("\ne_memmove() result: %s\ndest2 after e_memmove(): %s\n", 
-        (char*)e_memmove(dest2 + 3, dest2 + 2, n), dest2);
+  printf("\nmemmove() result: %s\ndest1 after memmove(): %s\n",
+         (char*)memmove(dest1 + 4, dest1 + 2, n), dest1);
+  printf("\ne_memmove() result: %s\ndest2 after e_memmove(): %s\n",
+         (char*)e_memmove(dest2 + 4, dest2 + 2, n), dest2);
 
   /*============================================================================
       4 memmove() vs memcpy()

@@ -51,13 +51,11 @@ void* e_memcpy(void* dest, const void* src, e_size_t n) {
           Another function to copy n characters from str2 to str1.
 ==============================================================================*/
 void* e_memmove(void* dest, const void* src, e_size_t n) {
+  char* ptr_dest = (char*)dest;
+  const char* ptr_src = (const char*)src;
   if (dest > src) {
-    char* ptr_dest = (char*)dest + n - 1;
-    const char* ptr_src = (const char*)src + n - 1;
-    while (n--) *ptr_dest-- = *ptr_src--;
+    while (n--) *(ptr_dest + n) = *(ptr_src + n);
   } else if (dest < src) {
-    char* ptr_dest = (char*)dest;
-    const char* ptr_src = (const char*)src;
     while (n--) *ptr_dest++ = *ptr_src++;
   }
   return dest;
@@ -144,7 +142,10 @@ char* e_strcpy(char* dest, const char* src) {
     Copying up to n characters from the string pointed to, by src to dest.
 ==============================================================================*/
 char* e_strncpy(char* dest, const char* src, e_size_t n) {
-  for (e_size_t i = 0; /* *src && */ i < n; i++) *(dest + i) = *src++;
+  // for (e_size_t i = 0; /* *src && */ i < n; i++) *(dest + i) = *src++;
+  char* ptr = dest;
+  while (n--) *ptr++ = *src++;
+  *ptr = '\0';
   return dest;
 }
 
