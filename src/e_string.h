@@ -29,8 +29,8 @@ int e_strncmp(const char* str1, const char* str2, e_size_t n);  // 10
 char* e_strcpy(char* dest, const char* src);                    // 11  need test
 char* e_strncpy(char* dest, const char* src, e_size_t n);       // 12  need test
 e_size_t e_strcspn(const char* str1, const char* str2);         // 13
-char* e_strerror(int errnum);
-e_size_t e_strlen(const char* str);  // 15
+char* e_strerror(int errnum);                                   // 14
+e_size_t e_strlen(const char* str);                             // 15
 
 char* e_inttostr(int c);
 

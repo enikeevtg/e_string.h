@@ -169,7 +169,8 @@ int main() {
   // for (int i = 0; i < ERR_NUM; i++) printf("\t%d\t\"%s\"\n", i,
   // e_strerror(i));
   float c = -2230.584384;
-  printf("%s\n", e_strerror(c));
+  char* intstr = e_strerror(c);
+  printf("string: %s\nlength = %ld\n", intstr, e_strlen(intstr));
 
   char str[80];
   sprintf(str, "%1.2d", (int)c);
