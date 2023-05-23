@@ -176,6 +176,9 @@ e_size_t e_strcspn(const char* str1, const char* str2) {
       found = 1;
   }
   return ptr1 - str1;
+
+  // OR:
+  // return e_strpbrk(str1, str2) - str1;
 }
 
 /*==============================================================================
@@ -238,4 +241,19 @@ e_size_t e_strlen(const char* str) {
         Finding the first character in the string str1 that matches
                     any character specified in str2.
 ==============================================================================*/
-char* e_strpbrk(const char* str1, const char* str2) {}
+char* e_strpbrk(const char* str1, const char* str2) {
+  return (char*)str1 + e_strcspn(str1, str2);
+
+  // OR:
+  // char* ptr1 = (char*)str1;
+  // int found = 0;
+  // while (*ptr1 && !found) {
+  //   char* ptr2 = (char*)str2;
+  //   while (*ptr2 && *ptr2 != *ptr1) ptr2++;
+  //   if (!*ptr2)
+  //     ptr1++;
+  //   else
+  //     found = 1;
+  // }
+  // return ptr1;
+}

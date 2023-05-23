@@ -1,8 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
+//#include <stdlib.h>
+
 #include <string.h>
 
-#include "e_string.h"
+#include "e_string_old.h"
 
 int main() {
   /*============================================================================
@@ -40,7 +41,41 @@ int main() {
   // printf("e_memcpy(): %s", dest2);
 
   /*============================================================================
-      4 memset()
+      4 memmove()
+  ============================================================================*/
+  // // char src[8] = "source_";
+  // char dest1[11] = "1234567890";
+  // char dest2[11] = "1234567890";
+
+  // int n = 3;
+  // // printf("src before memmove(): %s", src);
+  // printf("\nmemmove() result: %s\ndest1 after memmove(): %s\n",
+  //        (char*)memmove(dest1 + 4, dest1 + 2, n), dest1);
+  // printf("\ne_memmove() result: %s\ndest2 after e_memmove(): %s\n",
+  //        (char*)e_memmove(dest2 + 4, dest2 + 2, n), dest2);
+
+  /*============================================================================
+      4 memmove() vs memcpy()
+  ============================================================================*/
+  // char dest1[11] = "1234567890";
+  // char dest2[11] = "1234567890";
+
+  // int n = 3;
+  // printf("\nmemcpy() result: %s\ndest1 after memcpy(): %s\n\n",
+  //         (char*)memcpy(dest1 + 3, dest1 + 4, n), dest1);
+  // printf("memmove() result: %s\ndest1 after memmove(): %s\n\n",
+  //         (char*)memmove(dest2 + 3, dest2 + 4, n), dest2);
+
+  // char str[] = "OpenAI is great!";
+  // memmove(str + 3, str, 10);
+  // printf("Using memmove: %s\n", str);
+
+  // char str2[] = "OpenAI is great!";
+  // memcpy(str2 + 3, str2, 10);
+  // printf("Using memcpy: %s\n", str2);
+
+  /*============================================================================
+      5 memset()
   ============================================================================*/
   // char dest1[] = "1234567890";
   // char dest2[] = "1234567890";
@@ -52,9 +87,32 @@ int main() {
   //        (char*)e_memset(dest2, c, n), dest2);
 
   /*============================================================================
-      5 strncat()
+      6 strcat()
   ============================================================================*/
+  // char src[6] = "_src_";
+  // char dest_s21[80] = "_dest_";
+  // strcat(dest_s21, "ertydhfrty", 11);
+  // printf("dest_s21: %s\n\n", dest_s21);
+
   // char* str = (char*)calloc(1, sizeof(char));
+
+  // strcat(str, "Techie ");
+  // strcat(str, "Delight ");
+  // strcat(str, "– ");
+  // strcat(str, "Ace ");
+  // strcat(str, "the ");
+  // strcat(str, "Technical ");
+  // strcat(str, "Interviews");
+
+  // e_strcat(str, "Techie ");
+  // e_strcat(str, "Delight ");
+  // e_strcat(str, "– ");
+  // e_strcat(str, "Ace ");
+  // e_strcat(str, "the ");
+  // e_strcat(str, "Technical ");
+  // e_strcat(str, "Interviews");
+
+  // puts(str);
 
   // strncat(str, "Techie ", 2);
   // puts(str);
@@ -87,7 +145,7 @@ int main() {
   // puts(str);
 
   /*============================================================================
-      9 strcspn()
+      13 strcspn()
   ============================================================================*/
   // char str1[] = "1234a56b78C90d";
   // char str2[] = "ABCD";
@@ -97,7 +155,7 @@ int main() {
   //        e_strcspn((const char*)str1, (const char*)str2));
 
   /*============================================================================
-      10 strerror()
+      14 strerror()
   ============================================================================*/
   // find for error message list
   //   e_size_t max = 1;
@@ -110,22 +168,9 @@ int main() {
   //   printf("%ld\n", max);
   // for (int i = 0; i < ERR_NUM; i++) printf("\t%d\t\"%s\"\n", i,
   // e_strerror(i));
-
-  //   float c = -2230.584384;
-  //   char* intstr = e_strerror(c);
-  //   printf("string: %s\nlength = %ld\n", intstr, e_strlen(intstr));
-
-  /*============================================================================
-      12 e_strpbrk()
-  ============================================================================*/
-  // char str1[] = "wertyuikjhgf";
-  // char str2[] = "jik";
-  // printf("strpbrk result: %s\n", strpbrk(str1, str2));
-  // printf("e_strpbrk result: %s\n", e_strpbrk(str1, str2));
-
-  /*============================================================================
-      13 e_strrchr()
-  ============================================================================*/
+  float c = -2230.584384;
+  char* intstr = e_strerror(c);
+  printf("string: %s\nlength = %ld\n", intstr, e_strlen(intstr));
 
   return 0;
 }

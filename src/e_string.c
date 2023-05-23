@@ -112,17 +112,7 @@ char* e_strncpy(char* dest, const char* src, e_size_t n) {
                 consists entirely of characters not in str2.
 ==============================================================================*/
 e_size_t e_strcspn(const char* str1, const char* str2) {
-  const char* ptr1 = str1;
-  int found = 0;
-  while (*ptr1 && !found) {
-    const char* ptr2 = str2;
-    while (*ptr2 && *ptr2 != *ptr1) ptr2++;
-    if (!*ptr2)
-      ptr1++;
-    else
-      found = 1;
-  }
-  return ptr1 - str1;
+  return e_strpbrk(str1, str2) - str1;
 }
 
 /*==============================================================================
@@ -137,13 +127,74 @@ char* e_strerror(int errnum) {
   // "Unknown error: errnum"
   static char errmsg[STRERR_MAX];
   if (errnum < 0 || errnum >= ERR_NUM) {
-    e_strcpy(errmsg, "Unknown error: ");
+    e_strncpy(errmsg, "Unknown error: ", 16);
     e_strcat(errmsg, e_inttostr(errnum));
   } else {
     ERRORLIST;  // WHY DOES IT WORK? "\_(o_o)_/"
     e_strcpy(errmsg, e_errmsg_list[errnum]);
   }
   return errmsg;
+}
+
+/*==============================================================================
+                    11 size_t strlen(const char* str):
+                Computes the length of the string str up to
+              but not including the terminating null character.
+==============================================================================*/
+e_size_t e_strlen(const char* str) {
+  e_size_t count = 0;
+  while (*str++) count++;
+  return count;
+}
+
+/*==============================================================================
+          12 char* strpbrk(const char* str1, const char* str2):
+        Finding the first character in the string str1 that matches
+                    any character specified in str2.
+==============================================================================*/
+char* e_strpbrk(const char* str1, const char* str2) {
+  char* ptr1 = (char*)str1;
+  int found = 0;
+  while (*ptr1 && !found) {
+    char* ptr2 = (char*)str2;
+    while (*ptr2 && *ptr2 != *ptr1) ptr2++;
+    if (!*ptr2)
+      ptr1++;
+    else
+      found = 1;
+  }
+  return ptr1;
+}
+
+/*==============================================================================
+                13 char* strrchr(const char* str, int c)
+          Searches for the last occurrence of the character c
+    (an unsigned char) in the string pointed to by the argument str.
+==============================================================================*/
+char* e_strrchr(const char* str, int c) {}
+
+//---------------------------ADDITIONAL-FUNCTIONS-------------------------------
+/*==============================================================================
+                1 char* strcpy(char* dest, const char* src):
+                Copying the string pointed to, by src to dest.
+==============================================================================*/
+char* e_strcpy(char* dest, const char* src) {
+  char* ptr = dest;
+  while (*src) *ptr++ = *src++;
+  *ptr = '\0';
+  return dest;
+}
+
+/*==============================================================================
+                2 char* strcat(char* dest, const char* src):
+              Appending the string pointed to, by src to the end
+                      of the string pointed to by dest.
+==============================================================================*/
+char* e_strcat(char* dest, const char* src) {
+  char* tmp = dest + e_strlen(dest);
+  while (*src) *tmp++ = *src++;
+  *tmp = '\0';
+  return dest;
 }
 
 /*==============================================================================
@@ -169,20 +220,3 @@ char* e_inttostr(int c) {
   return strofint;
 }
 
-/*==============================================================================
-                    11 size_t strlen(const char* str):
-                Computes the length of the string str up to
-              but not including the terminating null character.
-==============================================================================*/
-e_size_t e_strlen(const char* str) {
-  e_size_t count = 0;
-  while (*str++) count++;
-  return count;
-}
-
-/*==============================================================================
-          12 char* strpbrk(const char* str1, const char* str2):
-        Finding the first character in the string str1 that matches
-                    any character specified in str2.
-==============================================================================*/
-char* e_strpbrk(const char* str1, const char* str2) {}

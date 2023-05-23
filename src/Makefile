@@ -17,6 +17,12 @@ main:
 	$(CC) $(CF) e_string.c -c $(STD)
 	$(CC) $(CF) main.o e_string.o -o e_string $(STD)
 
+test:
+
+e_string.a:
+
+gcov_report:
+
 style:
 	clang-format -i *.h *.c
 

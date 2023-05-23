@@ -29,5 +29,10 @@ char* e_strerror(int errnum);                                   // 10
 char* e_inttostr(int c);                                        // 10.1
 e_size_t e_strlen(const char* str);                             // 11
 char* e_strpbrk(const char* str1, const char* str2);            // 12
+char* e_strrchr(const char* str, int c);                        // 13
+
+//---------------------------ADDITIONAL-FUNCTIONS-------------------------------
+char* e_strcpy(char* dest, const char* src);
+char* e_strcat(char* dest, const char* src);
 
 #endif  // SRC_E_STRING_H_
