@@ -188,11 +188,49 @@ e_size_t e_strcspn(const char* str1, const char* str2) {
 ==============================================================================*/
 char* e_strerror(int errnum) {
   // "Unknown error: errnum"
-  static char res[STRERR_MAX];
-  ERRORLIST;  // WHY DOES IT WORK? "\_(o_o)_/"
-  e_strcpy(res, e_errmsg_list[errnum]);
-  return res;
+  static char errmsg[STRERR_MAX];
+  if (errnum < 0 || errnum >= ERR_NUM) {
+    e_strcpy(errmsg, "Unknown error: ");
+    e_strcat(errmsg, e_inttostr(errnum));
+  } else {
+    ERRORLIST;  // WHY DOES IT WORK? "\_(o_o)_/"
+    e_strcpy(errmsg, e_errmsg_list[errnum]);
+  }
+  return errmsg;
 }
+
+/*==============================================================================
+                          14.1 char* e_inttostr(int c):
+                          Converting integer to string
+                              (direct algorithm)
+==============================================================================*/
+char* e_inttostr(int c) {
+  int n = 1;
+  int num_of_digits = 0;
+  static char strofint[22] = {0};
+  int pos = 0;
+  if (c < 0) {
+    c = -c;
+    strofint[pos++] = '-';
+  }
+  while (c / n && n < INT_MAX / 10) {
+    n *= 10;
+    num_of_digits++;
+  }  
+  if (c / n == 0) n /= 10;
+  for (; n; pos++) {
+    strofint[pos] = c / n + '0';
+    c -= (c / n) * n;
+    n /= 10;
+  }
+  printf("%d\n", num_of_digits);
+  return strofint;
+}
+
+// int e_strtoint(const char* str) {
+
+//   return ;
+// }
 
 /*==============================================================================
                     15. size_t strlen(const char* str):

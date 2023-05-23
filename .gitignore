@@ -1,4 +1,5 @@
 .DS_Store
+.vscode/
 
 # Executables
 e_string

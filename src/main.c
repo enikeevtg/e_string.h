@@ -1,7 +1,5 @@
 #include <stdio.h>
 //#include <stdlib.h>
-//#include <string.h>
-// #define LINUX
 
 #include <string.h>
 
@@ -168,8 +166,13 @@ int main() {
   //     if (size > max) max = size;
   //   }
   //   printf("%ld\n", max);
-  for (int i = 0; i < ERRORS_NUM; i++)
-    printf("\t%d\t\"%s\"\n", i, e_strerror(i));
+  // for (int i = 0; i < ERR_NUM; i++) printf("\t%d\t\"%s\"\n", i,
+  // e_strerror(i));
+  float c = -2230.584384;
+  printf("%s\n", e_strerror(c));
 
+  char str[80];
+  sprintf(str, "%1.2d", (int)c);
+  printf("%s\n", str);
   return 0;
 }

@@ -9,11 +9,11 @@
 #ifndef SRC_E_ERRMSG_LIST_H_
 #define SRC_E_ERRMSG_LIST_H_
 
-#ifdef MACOS
-#define ERRORS_NUM 107
+#ifdef __APPLE__
+#define ERR_NUM 107
 #define STRERR_MAX 50
 #define ERRORLIST                                                \
-  const char e_errmsg_list[ERRORS_NUM][STRERR_MAX] = {           \
+  const char e_errmsg_list[ERR_NUM][STRERR_MAX] = {              \
       "Undefined error: 0",                              /*0*/   \
       "Operation not permitted",                         /*1*/   \
       "No such file or directory",                       /*2*/   \
@@ -123,11 +123,11 @@
       "Interface output queue is full"                   /*106*/ \
   }
 #endif
-#ifdef LINUX
-#define ERRORS_NUM 134
+#ifdef __linux__
+#define ERR_NUM 134
 #define STRERR_MAX 50
 #define ERRORLIST                                                  \
-  const char e_errmsg_list[ERRORS_NUM][STRERR_MAX] = {             \
+  const char e_errmsg_list[ERR_NUM][STRERR_MAX] = {                \
       "Success",                                           /*0*/   \
       "Operation not permitted",                           /*1*/   \
       "No such file or directory",                         /*2*/   \
