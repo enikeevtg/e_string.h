@@ -172,8 +172,5 @@ int main() {
   char* intstr = e_strerror(c);
   printf("string: %s\nlength = %ld\n", intstr, e_strlen(intstr));
 
-  char str[80];
-  sprintf(str, "%1.2d", (int)c);
-  printf("%s\n", str);
   return 0;
 }
