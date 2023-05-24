@@ -182,12 +182,11 @@ char* e_strrchr(const char* str, int c) {
   // char* ptr_c = e_strchr(tmp, c);
   // return (char*)str + str_len - (ptr_c - tmp + 1);
 
-  // SECOND IMPLEMENTATION WITHOUT E_STRCHR() FUNCTION:
+  // SECOND IMPLEMENTATION WITHOUT E_STRCHR() FUNCTION:  need tests!!!
   e_size_t str_len = e_strlen(str);
   char* ptr = str[str_len];  // pointer to '\0' of string str
   while (str[str_len] != c && str_len != -1) str_len--;
-  if (str_len != -1) {
-    ptr = str[str_len];
+  if (str_len != -1) ptr = str[str_len];
   return ptr;
 }
 
