@@ -175,14 +175,20 @@ char* e_strpbrk(const char* str1, const char* str2) {
 ==============================================================================*/
 char* e_strrchr(const char* str, int c) {
   // FIRST IMPLEMENTATION WITH E_STRCHR() FUNCTION:
-  e_size_t str_len = e_strlen(str);
-  char tmp[str_len + 1];
-  for (e_size_t i = 0; i < str_len; i++) tmp[i] = str[str_len - i - 1];
-  tmp[str_len] = '\0';
-  char* ptr_c = e_strchr(tmp, c);
-  return (char*)str + str_len - (ptr_c - tmp + 1);
+  // e_size_t str_len = e_strlen(str);
+  // char tmp[str_len + 1];
+  // for (e_size_t i = 0; i < str_len; i++) tmp[i] = str[str_len - i - 1];
+  // tmp[str_len] = '\0';
+  // char* ptr_c = e_strchr(tmp, c);
+  // return (char*)str + str_len - (ptr_c - tmp + 1);
 
   // SECOND IMPLEMENTATION WITHOUT E_STRCHR() FUNCTION:
+  e_size_t str_len = e_strlen(str);
+  char* ptr = str[str_len];  // pointer to '\0' of string str
+  while (str[str_len] != c && str_len != -1) str_len--;
+  if (str_len != -1) {
+    ptr = str[str_len];
+  return ptr;
 }
 
 //---------------------------ADDITIONAL-FUNCTIONS-------------------------------
