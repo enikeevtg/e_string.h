@@ -14,8 +14,7 @@
 ==============================================================================*/
 void* e_memchr(const void* str, int c, e_size_t n) {
   char* ptr = (char*)str;
-  char ch = (char)c;
-  for (e_size_t i = 0; i < n && ch != *ptr && *ptr; i++) ptr++;
+  for (e_size_t i = 0; i < n && *ptr != c && *ptr; i++) ptr++;
   if (ptr == (char*)str + n) ptr = E_NULL;
   return (void*)ptr;
 }
@@ -27,9 +26,7 @@ void* e_memchr(const void* str, int c, e_size_t n) {
 int e_memcmp(const void* str1, const void* str2, e_size_t n) {
   char* ptr1 = (char*)str1;
   char* ptr2 = (char*)str2;
-  for (e_size_t i = 1; i < n && (*ptr1) && (*ptr1 == *ptr2);
-       ptr1++, ptr2++, i++) {
-  }
+  for (e_size_t i = 1; i < n && *ptr1 && *ptr1 == *ptr2; ptr1++, ptr2++) i++;
   return *ptr1 - *ptr2;
 }
 
@@ -78,9 +75,8 @@ char* e_strncat(char* dest, const char* src, e_size_t n) {
                 in the string pointed to, by the argument str.
 ==============================================================================*/
 char* e_strchr(const char* str, int c) {
-  while (c != *str && *str != '\0') str++;
-  // if (*str == '\0') str = E_NULL;  // strchr() return "\0" string if nomatch
-  // BUT WHAT ABOUT LINUX?
+  while (*str != c && *str != '\0') str++;
+  if (*str == '\0' && c != 0) str = E_NULL;
   return (char*)str;
 }
 
@@ -90,8 +86,7 @@ char* e_strchr(const char* str, int c) {
 ==============================================================================*/
 int e_strncmp(const char* str1, const char* str2, e_size_t n) {
   for (e_size_t i = 0; (*str1) && (*str1 == *str2) && (i < n);
-       str1++, str2++, i++) {
-  }
+       str1++, str2++) i++;
   return *str1 - *str2;
 }
 
@@ -182,11 +177,10 @@ char* e_strrchr(const char* str, int c) {
   // char* ptr_c = e_strchr(tmp, c);
   // return (char*)str + str_len - (ptr_c - tmp + 1);
 
-  // SECOND IMPLEMENTATION WITHOUT E_STRCHR() FUNCTION:  need tests!!!
-  e_size_t str_len = e_strlen(str);
-  char* ptr = str[str_len];  // pointer to '\0' of string str
-  while (str[str_len] != c && str_len != -1) str_len--;
-  if (str_len != -1) ptr = str[str_len];
+  // SECOND IMPLEMENTATION WITHOUT E_STRCHR() FUNCTION:
+  char* ptr = (char*)str + e_strlen(str);  // pointer to '\0' of string str
+  while (ptr != str - sizeof(char) && *ptr != c) ptr--; 
+  if (ptr == str - sizeof(char)) ptr = E_NULL;
   return ptr;
 }
 

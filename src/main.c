@@ -8,23 +8,20 @@ int main() {
   /*============================================================================
       1 memchr()
   ============================================================================*/
-  // char str[] = "School 21";
-  // printf("%ld - %ld\n", strlen(str), e_strlen(str));
-  // char* res;
-  // for (int i = 65; i < 123; i++)
-  //   if ((res = memchr(str, i, 3)) != E_NULL) printf("%c\n", *res);
-  // printf("\n\n");
-  // for (int k = 65; k < 123; k++)
-  //   if ((res = e_memchr(str, k, 3)) != E_NULL) printf("%c\n", *res);
+//   char str[] = "School 21";
+//   int c = 'o';
+//   int bytes = 5;
+//   printf("memchr result: \"%s\"\n", (char*)memchr(str, c, bytes));
+//   printf("e_memchr result: \"%s\"\n", (char*)e_memchr(str, c, bytes));
 
   /*============================================================================
       2 memcmp()
   ============================================================================*/
-  // char str1[] = "School 21";
-  // char str2[] = "Schol 21";
-  // int n = 5;
-  // printf("memcmp(): %d\n", memcmp(str1, str2, n));
-  // printf("e_memcmp(): %d", e_memcmp(str1, str2, n));
+  char str1[] = "School 21";
+  char str2[] = "Schol 21";
+  int n = 5;
+  printf("memcmp(): %d\n", memcmp(str1, str2, n));
+  printf("e_memcmp(): %d", e_memcmp(str1, str2, n));
 
   /*============================================================================
       3 memcpy()
@@ -126,10 +123,10 @@ int main() {
   /*============================================================================
       13 e_strrchr()
   ============================================================================*/
-  char str1[] = "wertyuiktjhzgf";
-  int c = 256;
-  printf("strrchr result: \"%s\"\n\"%c\"\n", strrchr(str1, c), c);
-  printf("e_strrchr result: \"%s\"\n", e_strrchr(str1, c));
+//   char str1[] = "wertyuiktjhzgf";
+//   int c = 't';
+//   printf("strrchr result: \"%s\"\n\"%c\"\n", strrchr(str1, c), c);
+//   printf("e_strrchr result: \"%s\"\n", e_strrchr(str1, c));
   // for (int i = 0; i < 512; i++) printf("%c ", i);
   return 0;
 }
