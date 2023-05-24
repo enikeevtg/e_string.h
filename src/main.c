@@ -126,6 +126,10 @@ int main() {
   /*============================================================================
       13 e_strrchr()
   ============================================================================*/
-
+  char str1[] = "wertyuiktjhzgf";
+  int c = 256;
+  printf("strrchr result: \"%s\"\n\"%c\"\n", strrchr(str1, c), c);
+  printf("e_strrchr result: \"%s\"\n", e_strrchr(str1, c));
+  // for (int i = 0; i < 512; i++) printf("%c ", i);
   return 0;
 }

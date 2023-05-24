@@ -81,11 +81,11 @@ void* e_memset(void* str, int c, e_size_t n) {
                       of the string pointed to by dest.
 ==============================================================================*/
 char* e_strcat(char* dest, const char* src) {
-  // One realisation of function:
+  // FIRST IMPLEMENTATION OF FUNCTION:
   // e_size_t n = e_strlen(src);
   // dest = e_strncat(dest, src, n);
 
-  // Second (faster) realisation of function:
+  // SECOND (faster) IMPLEMENTATION OF FUNCTION:
   char* tmp = dest + e_strlen(dest);
   while (*src) *tmp++ = *src++;
   *tmp = '\0';
@@ -111,7 +111,7 @@ char* e_strncat(char* dest, const char* src, e_size_t n) {
 ==============================================================================*/
 char* e_strchr(const char* str, int c) {
   while (c != *str && *str != '\0') str++;
-  if (*str == '\0') str = E_NULL;
+  // if (*str == '\0') str = E_NULL;  // strchr() return "\0" string if nomatch
   return (char*)str;
 }
 
@@ -161,10 +161,12 @@ char* e_strncpy(char* dest, const char* src, e_size_t n) {
 
 /*==============================================================================
             13. size_t strcspn(const char* str1, const char* str2):
+                      Count String Pointers Number (?)
           Calculating the length of the initial segment of str1 which
                 consists entirely of characters not in str2.
 ==============================================================================*/
 e_size_t e_strcspn(const char* str1, const char* str2) {
+  // FIRST IMPLEMENTATION OF FUNCTION:
   const char* ptr1 = str1;
   int found = 0;
   while (*ptr1 && !found) {
@@ -177,7 +179,7 @@ e_size_t e_strcspn(const char* str1, const char* str2) {
   }
   return ptr1 - str1;
 
-  // OR:
+  // SECOND INMPLEMENTATION OF FUNCTION (look at 16 e_strpbrk() function):
   // return e_strpbrk(str1, str2) - str1;
 }
 
@@ -190,7 +192,6 @@ e_size_t e_strcspn(const char* str1, const char* str2) {
           Checking the current OS is carried out using directives.
 ==============================================================================*/
 char* e_strerror(int errnum) {
-  // "Unknown error: errnum"
   static char errmsg[STRERR_MAX];
   if (errnum < 0 || errnum >= ERR_NUM) {
     e_strcpy(errmsg, "Unknown error: ");
@@ -238,13 +239,15 @@ e_size_t e_strlen(const char* str) {
 
 /*==============================================================================
           16. char* strpbrk(const char* str1, const char* str2):
+                            Pointer BReaK
         Finding the first character in the string str1 that matches
                     any character specified in str2.
 ==============================================================================*/
 char* e_strpbrk(const char* str1, const char* str2) {
+  // FIRST IMPLEMENTATION OF FUNCTION:
   return (char*)str1 + e_strcspn(str1, str2);
 
-  // OR:
+  // SECOND INMPLEMENTATION OF FUNCTION (look at 13 e_strcspn() function):
   // char* ptr1 = (char*)str1;
   // int found = 0;
   // while (*ptr1 && !found) {

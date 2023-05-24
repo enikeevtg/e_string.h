@@ -28,7 +28,7 @@
 | ✅ | 10 | char *strerror(int errnum) | Searches an internal array for the error number errnum and returns a pointer to an error message string. You need to declare macros containing arrays of error messages for mac and linux operating systems. Error descriptions are available in the original library. Checking the current OS is carried out using directives. |
 | ✅ | 11 | size_t strlen(const char *str) | Computes the length of the string str up to but not including the terminating null character. |
 | ✅ | 12 | char *strpbrk(const char *str1, const char *str2) | Finds the first character in the string str1 that matches any character specified in str2. |
-| 🚩 | 13 | char *strrchr(const char *str, int c) | Searches for the last occurrence of the character c (an unsigned char) in the string pointed to by the argument str. |
+| ✅ | 13 | char *strrchr(const char *str, int c) | Searches for the last occurrence of the character c (an unsigned char) in the string pointed to by the argument str. |
 | 🚩 | 14 | char *strstr(const char *haystack, const char *needle) | Finds the first occurrence of the entire string needle (not including the terminating null character) which appears in the string haystack. |
 | 🚩 | 15 | char *strtok(char *str, const char *delim) | Breaks string str into a series of tokens separated by delim. |
 

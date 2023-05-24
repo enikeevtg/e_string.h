@@ -79,7 +79,8 @@ char* e_strncat(char* dest, const char* src, e_size_t n) {
 ==============================================================================*/
 char* e_strchr(const char* str, int c) {
   while (c != *str && *str != '\0') str++;
-  if (*str == '\0') str = E_NULL;
+  // if (*str == '\0') str = E_NULL;  // strchr() return "\0" string if nomatch
+  // BUT WHAT ABOUT LINUX?
   return (char*)str;
 }
 
@@ -102,12 +103,13 @@ char* e_strncpy(char* dest, const char* src, e_size_t n) {
   // for (e_size_t i = 0; /* *src && */ i < n; i++) *(dest + i) = *src++;
   char* ptr = dest;
   while (n--) *ptr++ = *src++;
-  *ptr = '\0';
+  *ptr = '\0';  // needed?
   return dest;
 }
 
 /*==============================================================================
             9 size_t strcspn(const char* str1, const char* str2):
+                    Count String Pointers Number (?)
           Calculating the length of the initial segment of str1 which
                 consists entirely of characters not in str2.
 ==============================================================================*/
@@ -124,7 +126,6 @@ e_size_t e_strcspn(const char* str1, const char* str2) {
           Checking the current OS is carried out using directives.
 ==============================================================================*/
 char* e_strerror(int errnum) {
-  // "Unknown error: errnum"
   static char errmsg[STRERR_MAX];
   if (errnum < 0 || errnum >= ERR_NUM) {
     e_strncpy(errmsg, "Unknown error: ", 16);
@@ -149,6 +150,7 @@ e_size_t e_strlen(const char* str) {
 
 /*==============================================================================
           12 char* strpbrk(const char* str1, const char* str2):
+                            Pointer BReaK
         Finding the first character in the string str1 that matches
                     any character specified in str2.
 ==============================================================================*/
@@ -168,10 +170,20 @@ char* e_strpbrk(const char* str1, const char* str2) {
 
 /*==============================================================================
                 13 char* strrchr(const char* str, int c)
-          Searches for the last occurrence of the character c
+          Searching for the last occurrence of the character c
     (an unsigned char) in the string pointed to by the argument str.
 ==============================================================================*/
-char* e_strrchr(const char* str, int c) {}
+char* e_strrchr(const char* str, int c) {
+  // FIRST IMPLEMENTATION WITH E_STRCHR() FUNCTION:
+  e_size_t str_len = e_strlen(str);
+  char tmp[str_len + 1];
+  for (e_size_t i = 0; i < str_len; i++) tmp[i] = str[str_len - i - 1];
+  tmp[str_len] = '\0';
+  char* ptr_c = e_strchr(tmp, c);
+  return (char*)str + str_len - (ptr_c - tmp + 1);
+
+  // SECOND IMPLEMENTATION WITHOUT E_STRCHR() FUNCTION:
+}
 
 //---------------------------ADDITIONAL-FUNCTIONS-------------------------------
 /*==============================================================================
@@ -198,9 +210,8 @@ char* e_strcat(char* dest, const char* src) {
 }
 
 /*==============================================================================
-                          10.1 char* e_inttostr(int c):
-                          Converting integer to string
-                              (direct algorithm)
+                            3 char* e_inttostr(int c):
+                  Converting integer to string (direct algorithm)
 ==============================================================================*/
 char* e_inttostr(int c) {
   int n = 1;
@@ -219,4 +230,3 @@ char* e_inttostr(int c) {
   }
   return strofint;
 }
-
