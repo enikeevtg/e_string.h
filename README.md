@@ -1,12 +1,12 @@
 # e_string.h
 
 ## Content:
-1.  - [x] [string.h Types](#string-h-types)
-2. [string.h Macro](#string\.h-macro)
-3. [string.h Functions](#string\.h-functions)
-4. [string.h Functions (old list)](#string.h-Functions-(old-list))
-5. [Special string processing functions (from the String class in C#)](#special-string-processing-functions-(from-the-String-class-in-C#))
-6. [Helpful Links](#helpful-links)
+1. - [x] [string.h Types](#string-h-types)
+2. - [x] [string.h Macro](#string-\.-h-macro)
+3. - [x] [string.h Functions](#string\.h-functions)
+4. - [x] [string.h Functions (old list)](#string.h-Functions-(old-list))
+5. - [ ] [Special string processing functions (from the String class in C#)](#special-string-processing-functions-(from-the-String-class-in-C#))
+6. - [ ] [Helpful Links](#helpful-links)
 
 ***
 
