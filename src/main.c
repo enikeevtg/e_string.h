@@ -8,20 +8,20 @@ int main() {
   /*============================================================================
       1 memchr()
   ============================================================================*/
-//   char str[] = "School 21";
-//   int c = 'o';
-//   int bytes = 5;
-//   printf("memchr result: \"%s\"\n", (char*)memchr(str, c, bytes));
-//   printf("e_memchr result: \"%s\"\n", (char*)e_memchr(str, c, bytes));
+  //   char str[] = "School 21";
+  //   int c = 'o';
+  //   int bytes = 5;
+  //   printf("memchr result: \"%s\"\n", (char*)memchr(str, c, bytes));
+  //   printf("e_memchr result: \"%s\"\n", (char*)e_memchr(str, c, bytes));
 
   /*============================================================================
       2 memcmp()
   ============================================================================*/
-  char str1[] = "School 21";
-  char str2[] = "Schol 21";
-  int n = 5;
-  printf("memcmp(): %d\n", memcmp(str1, str2, n));
-  printf("e_memcmp(): %d", e_memcmp(str1, str2, n));
+  //   char str1[] = "School 21";
+  //   char str2[] = "Schol 21";
+  //   int n = 5;
+  //   printf("memcmp(): %d\n", memcmp(str1, str2, n));
+  //   printf("e_memcmp(): %d", e_memcmp(str1, str2, n));
 
   /*============================================================================
       3 memcpy()
@@ -123,10 +123,18 @@ int main() {
   /*============================================================================
       13 e_strrchr()
   ============================================================================*/
-//   char str1[] = "wertyuiktjhzgf";
-//   int c = 't';
-//   printf("strrchr result: \"%s\"\n\"%c\"\n", strrchr(str1, c), c);
-//   printf("e_strrchr result: \"%s\"\n", e_strrchr(str1, c));
+  //   char str1[] = "wertyuiktjhzgf";
+  //   int c = 't';
+  //   printf("strrchr result: \"%s\"\n\"%c\"\n", strrchr(str1, c), c);
+  //   printf("e_strrchr result: \"%s\"\n", e_strrchr(str1, c));
   // for (int i = 0; i < 512; i++) printf("%c ", i);
+
+  /*============================================================================
+      14 e_strstr()
+  ============================================================================*/
+  char str1[] = "Сэлам, кадерле дуслар! Мин \"Мэктэптэ егерме бер\" укыйм:)";
+  char str2[] = "ер";
+  printf("strstr result: \"%s\"\n", strstr(str1, str2));
+  printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
   return 0;
 }

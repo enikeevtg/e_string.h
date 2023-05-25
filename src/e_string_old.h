@@ -35,4 +35,6 @@ e_size_t e_strlen(const char* str);                             // 15
 char* e_strpbrk(const char* str1, const char* str2);            // 16
 char* e_strrchr(const char* str, int c);                        // 17
 
+char* e_strstr(const char* haystack, const char* needle);       // 19
+
 #endif  // SRC_E_STRING_H_

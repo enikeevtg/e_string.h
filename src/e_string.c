@@ -85,8 +85,8 @@ char* e_strchr(const char* str, int c) {
             Comparing at most the first n bytes of str1 and str2.
 ==============================================================================*/
 int e_strncmp(const char* str1, const char* str2, e_size_t n) {
-  for (e_size_t i = 0; (*str1) && (*str1 == *str2) && (i < n);
-       str1++, str2++) i++;
+  for (e_size_t i = 0; (*str1) && (*str1 == *str2) && (i < n); str1++, str2++)
+    i++;
   return *str1 - *str2;
 }
 
@@ -179,9 +179,24 @@ char* e_strrchr(const char* str, int c) {
 
   // SECOND IMPLEMENTATION WITHOUT E_STRCHR() FUNCTION:
   char* ptr = (char*)str + e_strlen(str);  // pointer to '\0' of string str
-  while (ptr != str - sizeof(char) && *ptr != c) ptr--; 
+  while (ptr != str - sizeof(char) && *ptr != c) ptr--;
   if (ptr == str - sizeof(char)) ptr = E_NULL;
   return ptr;
+}
+
+/*==============================================================================
+          14 char* strstr(const char* haystack, const char* needle):
+      Finding the first occurrence of the entire string needle (not including
+      the terminating null character) which appears in the string haystack.
+==============================================================================*/
+char* e_strstr(const char* haystack, const char* needle) {
+  char* ptr_chr = e_strchr(haystack, *needle);
+  char* ptr_hay = ptr_chr;
+  char* ptr_need = (char*)needle;
+  if (ptr_chr)
+    for (; *ptr_hay == *ptr_need; ptr_hay++) ptr_need++;
+  if (*ptr_need && *ptr_hay) ptr_chr = e_strstr(ptr_hay, needle);
+  return ptr_chr;
 }
 
 //---------------------------ADDITIONAL-FUNCTIONS-------------------------------
