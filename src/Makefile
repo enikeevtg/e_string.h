@@ -1,6 +1,7 @@
 CC = gcc
 CF = -Wall -Werror -Wextra -g
 STD = -std=c11 -pedantic
+NAME = e_string
 
 #OS := $(shell uname)
 #	ifeq ($(OS), Darwin)
@@ -10,16 +11,19 @@ STD = -std=c11 -pedantic
 #		OSF = -D LINUX
 #	endif
 
-all: clean main
+all: clean build
 
-main:
-	$(CC) $(CF) main.c -c $(STD)
-	$(CC) $(CF) e_string.c -c $(STD)
-	$(CC) $(CF) main.o e_string.o -o e_string $(STD)
+build: e_string.a
+	$(CC) $(CF) main.c -L. -l_$(NAME) -o $(NAME) $(STD)
 
 test:
 
-e_string.a:
+e_string.a: e_string.o
+	ar rv lib_$@ $^
+	rm $^
+
+e_string.o:
+	$(CC) $(CF) e_string.c -c $(STD)
 
 gcov_report:
 
@@ -27,4 +31,4 @@ style:
 	clang-format -i *.h *.c
 
 clean:
-	rm -rf *.out e_string *.o
+	rm -rf $(NAME) *.o *.a
