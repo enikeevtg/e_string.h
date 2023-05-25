@@ -1,12 +1,12 @@
 # e_string.h
 
-## Content:
+## Contents
 1. - [x] [string.h Types](#stringh-types)
 2. - [x] [string.h Macro](#stringh-macro)
 3. - [x] [string.h Functions](#stringh-functions)
 4. - [x] [string.h Functions (old list)](#stringh-functions-old-list)
 5. - [ ] [Special string processing functions (from the String class in C#)](#special-string-processing-functions-from-the-string-class-in-c)
-6. - [x] [Helpful Links](#helpful-links)
+6. - [x] [Helpful Materials](#helpful-materials)
 
 ***
 
@@ -146,6 +146,6 @@ where:
 
 ***
 
-## Helpful Links
+## Helpful Materials
 
 [<check.h> by Nurgali](https://carbonated-pink-083.notion.site/Check-h-88c37157792044c18a71028365ba9dcb)
