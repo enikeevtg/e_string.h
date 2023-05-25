@@ -150,7 +150,6 @@ char* e_strncpy(char* dest, const char* src, e_size_t n) {
   // for (e_size_t i = 0; /* *src && */ i < n; i++) *(dest + i) = *src++;
   char* ptr = dest;
   while (n--) *ptr++ = *src++;
-  *ptr = '\0';
   return dest;
 }
 
@@ -284,6 +283,13 @@ char* e_strrchr(const char* str, int c) {
 }
 
 /*==============================================================================
+          18 size_t strspn(const char* str1, const char* str2):
+          Calculates the length of the initial segment of str1
+              which consists entirely of characters in str2.
+==============================================================================*/
+// e_size_t e_strspn(const char* str1, const char* str2) {}
+
+/*==============================================================================
           19 char* strstr(const char* haystack, const char* needle):
       Finding the first occurrence of the entire string needle (not including
       the terminating null character) which appears in the string haystack.
@@ -296,4 +302,14 @@ char* e_strstr(const char* haystack, const char* needle) {
     for (; *ptr_hay == *ptr_need; ptr_hay++) ptr_need++;
   if (*ptr_need && *ptr_hay) ptr_chr = e_strstr(ptr_hay, needle);
   return ptr_chr;
+}
+
+/*==============================================================================
+              20 char* strtok(char* str, const char* delim):
+        Breaking string str into a series of tokens separated by delim.
+==============================================================================*/
+char* e_strtok(char* str, const char* delim) {
+  char* ptr_end = e_strpbrk(str, delim);
+  *ptr_end = '\0';
+  return str;
 }

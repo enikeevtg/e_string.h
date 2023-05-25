@@ -1,11 +1,21 @@
 # e_string.h
 
-## string.h Types
+## Content:
+1.  - [x] [string.h Types](#string-h-types)
+2. [string.h Macro](#string\.h-macro)
+3. [string.h Functions](#string\.h-functions)
+4. [string.h Functions (old list)](#string.h-Functions-(old-list))
+5. [Special string processing functions (from the String class in C#)](#special-string-processing-functions-(from-the-String-class-in-C#))
+6. [Helpful Links](#helpful-links)
+
+***
+
+## string h Types
 
 | Coding Status | No. | Variable | Description |
 | ------ | ------ | ------ | ------ |
 | ✅ | 1 | size_t | This is the unsigned integral type and is the result of the sizeof keyword. |
-	
+
 ## string.h Macro
 
 | Coding Status | No. | Macro | Description |
@@ -30,7 +40,7 @@
 | ✅ | 12 | char *strpbrk(const char *str1, const char *str2) | Finds the first character in the string str1 that matches any character specified in str2. |
 | ✅ | 13 | char *strrchr(const char *str, int c) | Searches for the last occurrence of the character c (an unsigned char) in the string pointed to by the argument str. |
 | ✅ | 14 | char *strstr(const char *haystack, const char *needle) | Finds the first occurrence of the entire string needle (not including the terminating null character) which appears in the string haystack. |
-| 🚩 | 15 | char *strtok(char *str, const char *delim) | Breaks string str into a series of tokens separated by delim. |
+| ✅ | 15 | char *strtok(char *str, const char *delim) | Breaks string str into a series of tokens separated by delim. |
 
 ***
 
@@ -57,7 +67,7 @@
 | ✅ | 17 | char *strrchr(const char *str, int c) | Searches for the last occurrence of the character c (an unsigned char) in the string pointed to by the argument str. |
 | 🚩✔️ | 18 | size_t strspn(const char *str1, const char *str2) | Calculates the length of the initial segment of str1 which consists entirely of characters in str2. |
 | ✅ | 19 | char *strstr(const char *haystack, const char *needle) | Finds the first occurrence of the entire string needle (not including the terminating null character) which appears in the string haystack. |
-| 🚩 | 20 | char *strtok(char *str, const char *delim) | Breaks string str into a series of tokens separated by delim. |
+| ✅ | 20 | char *strtok(char *str, const char *delim) | Breaks string str into a series of tokens separated by delim. |
 
 ***
 
@@ -134,3 +144,8 @@ where:
 | 2 | l | The argument is interpreted as a long int or unsigned long int for integer specifiers (i, d, o, u, x and X), and as a wide character or wide character string for specifiers c and s. |
 | 3 | L | The argument is interpreted as a long double (only applies to floating point specifiers − e, E, f, g and G). |
 
+***
+
+## Helpful Links
+
+[<check.h> by Nurgali](https://carbonated-pink-083.notion.site/Check-h-88c37157792044c18a71028365ba9dcb)

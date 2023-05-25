@@ -26,15 +26,18 @@ int main() {
   /*============================================================================
       3 memcpy()
   ============================================================================*/
-  // char src[] = "source_";
-  //  char dest1[] = "1234567890";
-  //  char dest2[] = "1234567890";
+  // char src[] = "src";
+  // char dest1[] = "1234567890";
+  // char dest2[] = "1234567890";
 
   // int n = 4;
   // (char*)memcpy(dest1 + 2, dest1, n);
-  // printf("memcpy(): %s\n", dest1);
   // (char*)e_memcpy(dest2 + 2, dest2, n);
-  // printf("e_memcpy(): %s", dest2);
+  // printf("memcpy result: %s\n", dest1);
+  // printf("e_memcpy result: %s\n\n", dest2);
+
+  // printf("memcpy result: %s\n", (char*)memcpy(dest1, src, n));
+  // printf("e_memcpy result: %s\n", (char*)e_memcpy(dest2, src, n));
 
   /*============================================================================
       4 memset()
@@ -84,6 +87,23 @@ int main() {
   // puts(str);
 
   /*============================================================================
+      8 strncpy() && strcpy()
+  ============================================================================*/
+  // char src[] = "src";
+  // char dest1[] = "1234567890";
+  // char dest2[] = "1234567890";
+
+  // e_size_t source_len = strlen(src);
+  // (char*)strncpy(dest1, src, source_len);
+  // (char*)e_strncpy(dest2, src, source_len);
+  // // (char*)strcpy(dest1, src);
+  // // (char*)e_strcpy(dest2, src);
+  // printf("strcpy result: %s\n", dest1);
+  // printf("strcpy excess: %s\n", dest1 + source_len + 1);
+  // printf("e_strcpy result: %s\n", dest2);
+  // printf("e_strcpy excess: %s\n", dest2 + source_len + 1);
+
+  /*============================================================================
       9 strcspn()
   ============================================================================*/
   // char str1[] = "1234a56b78C90d";
@@ -115,10 +135,10 @@ int main() {
   /*============================================================================
       12 e_strpbrk()
   ============================================================================*/
-  char str1[] = "wertyuikjhgf";
-  char str2[] = "jik";
-  printf("strpbrk result: %s\n", strpbrk(str1, str2));
-  printf("e_strpbrk result: %s\n", e_strpbrk(str1, str2));
+  //   char str1[] = "wertyuikjhgf";
+  //   char str2[] = "jik";
+  //   printf("strpbrk result: %s\n", strpbrk(str1, str2));
+  //   printf("e_strpbrk result: %s\n", e_strpbrk(str1, str2));
 
   /*============================================================================
       13 e_strrchr()
@@ -132,17 +152,21 @@ int main() {
   /*============================================================================
       14 e_strstr()
   ============================================================================*/
-//   char str1[] = "Сэлам, кадерле дуслар! Мин \"Мэктэптэ егерме бер\" укыйм:)";
-//   char str2[] = "ер";
-//   printf("strstr result: \"%s\"\n", strstr(str1, str2));
-//   printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
+  // char str1[] = "Сэлам, кадерле дуслар! Мин \"Мэктэптэ егерме бер\" укыйм:)";
+  // char str2[] = "ер";
+  // printf("strstr result: \"%s\"\n", strstr(str1, str2));
+  // printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
 
   /*============================================================================
       15 e_strstr()
   ============================================================================*/
-//   char str1[] = "Hey guys! What\'s up! I study at \"School 21\" programming school:)";
-//   char str2[] = "prog";
-//   printf("strtok result: \"%s\"\n", strtok(str1, str2));
-//   printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
+  // char str1[] =
+  //     "Hey guys! What\'s up! I study at \"School 21\" programming school:)";
+  // char str2[] = "e";
+  // printf("strtok result: \"%s\"\n", strtok(str1, str2));
+  // printf("strtok excess: \"%s\"\n", str1 + strlen(str1) + 1);
+  // printf("e_strtok result: \"%s\"\n", e_strtok(str1, str2));
+  // printf("e_strtok excess: \"%s\"\n", str1 + e_strlen(str1) + 1);
+
   return 0;
 }

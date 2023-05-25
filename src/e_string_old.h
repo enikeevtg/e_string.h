@@ -26,15 +26,15 @@ char* e_strncat(char* dest, const char* src, e_size_t n);       // 7
 char* e_strchr(const char* str, int c);                         // 8
 int e_strcmp(const char* str1, const char* str2);               // 9
 int e_strncmp(const char* str1, const char* str2, e_size_t n);  // 10
-char* e_strcpy(char* dest, const char* src);                    // 11  need test
-char* e_strncpy(char* dest, const char* src, e_size_t n);       // 12  need test
+char* e_strcpy(char* dest, const char* src);                    // 11
+char* e_strncpy(char* dest, const char* src, e_size_t n);       // 12
 e_size_t e_strcspn(const char* str1, const char* str2);         // 13
 char* e_strerror(int errnum);                                   // 14
 char* e_inttostr(int c);                                        // 14.1
 e_size_t e_strlen(const char* str);                             // 15
 char* e_strpbrk(const char* str1, const char* str2);            // 16
 char* e_strrchr(const char* str, int c);                        // 17
-
 char* e_strstr(const char* haystack, const char* needle);       // 19
+char* e_strtok(char* str, const char* delim);                   // 20
 
 #endif  // SRC_E_STRING_H_

@@ -8,6 +8,11 @@
 #include "e_string.h"
 
 /*==============================================================================
+
+                            REQUIRED FUNCTIONS
+
+==============================================================================*/
+/*==============================================================================
               1 void* memchr(const void* str, int c, size_t n):
     Searching for the first occurrence of the character c (an unsigned char)
       in the first n bytes of the string pointed to, by the argument str.
@@ -98,7 +103,6 @@ char* e_strncpy(char* dest, const char* src, e_size_t n) {
   // for (e_size_t i = 0; /* *src && */ i < n; i++) *(dest + i) = *src++;
   char* ptr = dest;
   while (n--) *ptr++ = *src++;
-  *ptr = '\0';  // needed?
   return dest;
 }
 
@@ -208,15 +212,21 @@ char* e_strstr(const char* haystack, const char* needle) {
 
 /*==============================================================================
               15 char* strtok(char* str, const char* delim):
-        Breaks string str into a series of tokens separated by delim.
+        Breaking string str into a series of tokens separated by delim.
 ==============================================================================*/
-// char* e_strtok(char* str, const char* delim) {
-//   char* ptr_end = e_strcspn
-// }
+char* e_strtok(char* str, const char* delim) {
+  char* ptr_end = e_strpbrk(str, delim);
+  *ptr_end = '\0';
+  return str;
+}
 
-//---------------------------ADDITIONAL-FUNCTIONS-------------------------------
 /*==============================================================================
-                1 char* strcpy(char* dest, const char* src):
+
+                              ADDITIONAL FUNCTIONS
+
+==============================================================================*/
+/*==============================================================================
+                  char* strcpy(char* dest, const char* src):
                 Copying the string pointed to, by src to dest.
 ==============================================================================*/
 char* e_strcpy(char* dest, const char* src) {
@@ -227,7 +237,7 @@ char* e_strcpy(char* dest, const char* src) {
 }
 
 /*==============================================================================
-                2 char* strcat(char* dest, const char* src):
+                  char* strcat(char* dest, const char* src):
               Appending the string pointed to, by src to the end
                       of the string pointed to by dest.
 ==============================================================================*/
@@ -239,7 +249,7 @@ char* e_strcat(char* dest, const char* src) {
 }
 
 /*==============================================================================
-                            3 char* e_inttostr(int c):
+                            char* e_inttostr(int c):
                   Converting integer to string (direct algorithm)
 ==============================================================================*/
 char* e_inttostr(int c) {
