@@ -242,18 +242,24 @@ char* e_strpbrk(const char* str1, const char* str2) {
   // FIRST IMPLEMENTATION OF FUNCTION:
   return (char*)str1 + e_strcspn(str1, str2);
 
-  // SECOND INMPLEMENTATION OF FUNCTION (look at 13 e_strcspn() function):
+  // SECOND IMPLEMENTATION OF FUNCTION (look at 13 e_strcspn() function):
   // char* ptr1 = (char*)str1;
   // int found = 0;
+  // char* ptr2 = (char*)str2;
   // while (*ptr1 && !found) {
-  //   char* ptr2 = (char*)str2;
   //   while (*ptr2 && *ptr2 != *ptr1) ptr2++;
-  //   if (!*ptr2)
-  //     ptr1++;
-  //   else
+  //   if (*ptr2) {
   //     found = 1;
+  //   } else {
+  //     ptr1++;
+  //     ptr2 = (char*)str2;
+  //   }
   // }
   // return ptr1;
+
+  // THIRD IMPLEMENTATION WITH E_STRCHR():
+  while (*str1 && !e_strchr(str2, *str1)) str1++;
+  return (char*)str1;
 }
 
 /*==============================================================================
