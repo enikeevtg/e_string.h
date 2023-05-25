@@ -150,17 +150,24 @@ e_size_t e_strlen(const char* str) {
                     any character specified in str2.
 ==============================================================================*/
 char* e_strpbrk(const char* str1, const char* str2) {
-  char* ptr1 = (char*)str1;
-  int found = 0;
-  while (*ptr1 && !found) {
-    char* ptr2 = (char*)str2;
-    while (*ptr2 && *ptr2 != *ptr1) ptr2++;
-    if (!*ptr2)
-      ptr1++;
-    else
-      found = 1;
-  }
-  return ptr1;
+  // FIRST IMPLEMENTATION:
+  // char* ptr1 = (char*)str1;
+  // int found = 0;
+  // char* ptr2 = (char*)str2;
+  // while (*ptr1 && !found) {
+  //   while (*ptr2 && *ptr2 != *ptr1) ptr2++;
+  //   if (*ptr2) {
+  //     found = 1;
+  //   } else {
+  //     ptr1++;
+  //     ptr2 = (char*)str2;
+  //   }
+  // }
+  // return ptr1;
+
+  // SECOND IMPLEMENTATION WITH E_STRCHR():
+  while (*str1 && !e_strchr(str2, *str1)) str1++;
+  return (char*)str1;
 }
 
 /*==============================================================================
@@ -198,6 +205,14 @@ char* e_strstr(const char* haystack, const char* needle) {
   if (*ptr_need && *ptr_hay) ptr_chr = e_strstr(ptr_hay, needle);
   return ptr_chr;
 }
+
+/*==============================================================================
+              15 char* strtok(char* str, const char* delim):
+        Breaks string str into a series of tokens separated by delim.
+==============================================================================*/
+// char* e_strtok(char* str, const char* delim) {
+//   char* ptr_end = e_strcspn
+// }
 
 //---------------------------ADDITIONAL-FUNCTIONS-------------------------------
 /*==============================================================================

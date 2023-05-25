@@ -115,10 +115,10 @@ int main() {
   /*============================================================================
       12 e_strpbrk()
   ============================================================================*/
-  // char str1[] = "wertyuikjhgf";
-  // char str2[] = "jik";
-  // printf("strpbrk result: %s\n", strpbrk(str1, str2));
-  // printf("e_strpbrk result: %s\n", e_strpbrk(str1, str2));
+  char str1[] = "wertyuikjhgf";
+  char str2[] = "jik";
+  printf("strpbrk result: %s\n", strpbrk(str1, str2));
+  printf("e_strpbrk result: %s\n", e_strpbrk(str1, str2));
 
   /*============================================================================
       13 e_strrchr()
@@ -132,9 +132,17 @@ int main() {
   /*============================================================================
       14 e_strstr()
   ============================================================================*/
-  char str1[] = "Сэлам, кадерле дуслар! Мин \"Мэктэптэ егерме бер\" укыйм:)";
-  char str2[] = "ер";
-  printf("strstr result: \"%s\"\n", strstr(str1, str2));
-  printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
+//   char str1[] = "Сэлам, кадерле дуслар! Мин \"Мэктэптэ егерме бер\" укыйм:)";
+//   char str2[] = "ер";
+//   printf("strstr result: \"%s\"\n", strstr(str1, str2));
+//   printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
+
+  /*============================================================================
+      15 e_strstr()
+  ============================================================================*/
+//   char str1[] = "Hey guys! What\'s up! I study at \"School 21\" programming school:)";
+//   char str2[] = "prog";
+//   printf("strtok result: \"%s\"\n", strtok(str1, str2));
+//   printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
   return 0;
 }
