@@ -171,10 +171,10 @@ int main() {
   /*============================================================================
       1 to_upper()
   ============================================================================*/
-  // char src[] = "Hello, world!";
-  // char* res = e_to_upper(src);
-  // printf("src: %s\nres: %s", src, res);
-  // if (res) free(res);
+  char src[] = "Hello, world!";
+  char* res = e_to_upper(src);
+  printf("src: %s\nres: %s", src, res);
+  if (res) free(res);
 
   /*============================================================================
       2 to_lower()
@@ -197,11 +197,11 @@ int main() {
   /*============================================================================
       4 insert()
   ============================================================================*/
-  char src[] = "***///**   Hello, my friend!   ****  ///";
-  char trim_chars[] = "* /";
-  char* dest = e_trim(src, trim_chars);
-  printf("src: %s\ndest: %s", src, dest);
-  if (dest) free(dest);
+//   char src[] = "***///**   Hello, my friend!   ****  ///";
+//   char trim_chars[] = "* /";
+//   char* dest = e_trim(src, trim_chars);
+//   printf("src: %s\ndest: %s", src, dest);
+//   if (dest) free(dest);
 
   return 0;
 }

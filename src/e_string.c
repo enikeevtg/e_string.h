@@ -231,15 +231,16 @@ char* e_strtok(char* str, const char* delim) {
                   In case of any error, returning NULL
 ==============================================================================*/
 void* e_to_upper(const char* str) {
-  char* STR = E_NULL;
-  if (str) STR = (char*)calloc(e_strlen(str) + 1, sizeof(char));
-  if (STR) STR = e_strcpy(STR, str);
-  if (STR) {
-    char* ptr = STR;
-    for (; *ptr; ptr++)
-      if (96 < *ptr && *ptr < 123) *ptr -= 32;
-  }
-  return (void*)STR;
+  // char* STR = E_NULL;
+  // if (str) STR = (char*)calloc(e_strlen(str) + 1, sizeof(char));
+  // if (STR) STR = e_strcpy(STR, str);
+  // if (STR) {
+  //   char* ptr = STR;
+  //   for (; *ptr; ptr++)
+  //     if (96 < *ptr && *ptr < 123) *ptr -= 32;
+  // }
+  // return (void*)STR;
+  return change_registr(str, 1);
 }
 
 /*==============================================================================
@@ -247,16 +248,17 @@ void* e_to_upper(const char* str) {
           Returning a copy of string (str) converted to lowercase.
                   In case of any error, returning NULL
 ==============================================================================*/
-void* e_to_lower(const char* STR) {
-  char* str = E_NULL;
-  if (STR) str = (char*)calloc(e_strlen(STR) + 1, sizeof(char));
-  if (str) str = e_strcpy(str, STR);
-  if (str) {
-    char* ptr = str;
-    for (; *ptr; ptr++)
-      if (64 < *ptr && *ptr < 91) *ptr += 32;
-  }
-  return (void*)str;
+void* e_to_lower(const char* str /*STR*/) {
+  // char* str = E_NULL;
+  // if (STR) str = (char*)calloc(e_strlen(STR) + 1, sizeof(char));
+  // if (str) str = e_strcpy(str, STR);
+  // if (str) {
+  //   char* ptr = str;
+  //   for (; *ptr; ptr++)
+  //     if (64 < *ptr && *ptr < 91) *ptr += 32;
+  // }
+  // return (void*)str;
+  return change_registr(str, -1);
 }
 
 /*==============================================================================
@@ -343,4 +345,25 @@ char* e_inttostr(int c) {
     n /= 10;
   }
   return strofint;
+}
+
+/*==============================================================================
+                void* change_registr(const char* str, int mode):
+      Returning a copy of string (str) changed chars registr depend on mode:
+                      (mode == -1) is "STR" -> "str"
+                      (mode == +1) is "str" -> "STR"
+                  In case of any error, returning NULL
+==============================================================================*/
+void* change_registr(const char* str, int mode) {
+  char* res = E_NULL;
+  if (str) res = (char*)calloc(e_strlen(str) + 1, sizeof(char));
+  if (res) res = e_strcpy(res, str);
+  if (res) {
+    char* ptr = res;
+    for (; *ptr; ptr++) {
+      if (mode == 1 && 96 < *ptr && *ptr < 123) *ptr -= 32;
+      if (mode == -1 && 64 < *ptr && *ptr < 91) *ptr += 32;
+    }
+  }
+  return (void*)res;
 }
