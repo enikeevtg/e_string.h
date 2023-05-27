@@ -168,5 +168,12 @@ int main() {
   // printf("e_strtok result: \"%s\"\n", e_strtok(str1, str2));
   // printf("e_strtok excess: \"%s\"\n", str1 + e_strlen(str1) + 1);
 
+  /*============================================================================
+      1 to_upper()
+  ============================================================================*/
+  char str[] = "Hello, world!\nПривет, мир!";
+  char* STR = (char*)e_to_upper(str);
+  printf("str: %s\nSTR: %s", str, STR);
+  if (STR) free(STR);
   return 0;
 }

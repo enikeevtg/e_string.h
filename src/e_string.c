@@ -222,6 +222,29 @@ char* e_strtok(char* str, const char* delim) {
 
 /*==============================================================================
 
+      Special string processing functions (from the String class in C#)
+
+==============================================================================*/
+/*==============================================================================
+                    1 void* to_upper(const char* str):
+          Returns a copy of string (str) converted to uppercase.
+                    In case of any error, return NULL
+==============================================================================*/
+void* e_to_upper(const char* str) {
+  char* STR = E_NULL;
+  if (str) STR = (char*)calloc(e_strlen(str), sizeof(char));
+  if (STR) STR = e_strcpy(STR, str);
+  if (STR) {
+    char* ptr = STR;
+    for (; *ptr; ptr++)
+      if (96 < *ptr && *ptr < 123) *ptr -= 32;
+  }
+  return (void*)STR;
+}
+
+
+/*==============================================================================
+
                               ADDITIONAL FUNCTIONS
 
 ==============================================================================*/

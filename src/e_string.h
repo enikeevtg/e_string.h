@@ -9,6 +9,8 @@
 #define SRC_E_STRING_H_
 
 #include <stdio.h>
+#include <stdlib.h>
+// #define calloc(x,y) NULL
 
 #include "e_errmsg_list.h"
 
@@ -34,6 +36,11 @@ char* e_strpbrk(const char* str1, const char* str2);            // 12
 char* e_strrchr(const char* str, int c);                        // 13
 char* e_strstr(const char* haystack, const char* needle);       // 14
 char* e_strtok(char* str, const char* delim);                   // 15
+
+/*==============================================================================
+      Special string processing functions (from the String class in C#)
+==============================================================================*/
+void* e_to_upper(const char* str);  // 1
 
 /*==============================================================================
                             ADDITIONAL FUNCTIONS
