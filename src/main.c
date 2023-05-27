@@ -177,12 +177,21 @@ int main() {
   // if (res) free(res);
 
   /*============================================================================
-      1 to_lower()
+      2 to_lower()
   ============================================================================*/
-  char src[] = "HelLO, wORld!";
-  char* res = (char*)e_to_lower(src);
-  printf("src: %s\nres: %s", src, res);
-  if (res) free(res);
+  // char src[] = "HelLO, wORld!";
+  // char* res = (char*)e_to_lower(src);
+  // printf("src: %s\nres: %s", src, res);
+  // if (res) free(res);
 
+  /*============================================================================
+      3 insert()
+  ============================================================================*/
+  char src[] = "Hello, my friend!";
+  char str[] = "dear ";
+  e_size_t start = 10;
+  char* dest = e_insert(src, str, start);
+  printf("src: %s\nstr: %s\ndest: %s\n", src, str, dest);
+  if (dest) free(dest);
   return 0;
 }

@@ -9,7 +9,7 @@
 
 /*==============================================================================
 
-                            REQUIRED FUNCTIONS
+                            STRING.H FUNCTIONS
 
 ==============================================================================*/
 /*==============================================================================
@@ -222,17 +222,17 @@ char* e_strtok(char* str, const char* delim) {
 
 /*==============================================================================
 
-      Special string processing functions (from the String class in C#)
+      SPECIAL STRING PROCESSING FUNCTIONS (FROM THE STRING CLASS IN C#)
 
 ==============================================================================*/
 /*==============================================================================
                     1 void* to_upper(const char* str):
-          Returns a copy of string (str) converted to uppercase.
+          Returning a copy of string (str) converted to uppercase.
                     In case of any error, return NULL
 ==============================================================================*/
 void* e_to_upper(const char* str) {
   char* STR = E_NULL;
-  if (str) STR = (char*)calloc(e_strlen(str), sizeof(char));
+  if (str) STR = (char*)calloc(e_strlen(str) + 1, sizeof(char));
   if (STR) STR = e_strcpy(STR, str);
   if (STR) {
     char* ptr = STR;
@@ -244,12 +244,12 @@ void* e_to_upper(const char* str) {
 
 /*==============================================================================
                     2 void* to_lower(const char* str):
-          Returns a copy of string (str) converted to lowercase.
+          Returning a copy of string (str) converted to lowercase.
                     In case of any error, return NULL
 ==============================================================================*/
 void* e_to_lower(const char* STR) {
   char* str = E_NULL;
-  if (STR) str = (char*)calloc(e_strlen(STR), sizeof(char));
+  if (STR) str = (char*)calloc(e_strlen(STR) + 1, sizeof(char));
   if (str) str = e_strcpy(str, STR);
   if (str) {
     char* ptr = str;
@@ -257,6 +257,24 @@ void* e_to_lower(const char* STR) {
       if (64 < *ptr && *ptr < 91) *ptr += 32;
   }
   return (void*)str;
+}
+
+/*==============================================================================
+      3. void* insert(const char* src, const char* str, size_t start_index):
+    Returning a new string in which a specified string (str) is inserted at a
+        specified index position (start_index) in the given string (src).
+                      In case of any error, return NULL
+==============================================================================*/
+void* e_insert(const char* src, const char* str, e_size_t start_index) {
+  char* dest = E_NULL;
+  e_size_t dest_len = e_strlen(src) + e_strlen(str) + 1;
+  if (src && str) dest = (char*)calloc(dest_len, sizeof(char));
+  if (dest) {
+    dest = e_strncat(dest, src, start_index);
+    dest = e_strcat(dest, str);
+    dest = e_strcat(dest, src + start_index);
+  }
+  return (void*)dest;
 }
 
 /*==============================================================================

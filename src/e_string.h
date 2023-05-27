@@ -19,7 +19,7 @@
 typedef unsigned long int e_size_t;
 
 /*==============================================================================
-                            REQUIRED FUNCTIONS
+                            STRING.H FUNCTIONS
 ==============================================================================*/
 void* e_memchr(const void* str, int c, e_size_t n);             // 1
 int e_memcmp(const void* str1, const void* str2, e_size_t n);   // 2
@@ -38,10 +38,11 @@ char* e_strstr(const char* haystack, const char* needle);       // 14
 char* e_strtok(char* str, const char* delim);                   // 15
 
 /*==============================================================================
-      Special string processing functions (from the String class in C#)
+      SPECIAL STRING PROCESSING FUNCTIONS (FROM THE STRING CLASS IN C#)
 ==============================================================================*/
-void* e_to_upper(const char* str);  // 1
-void* e_to_lower(const char* STR);  // 2
+void* e_to_upper(const char* str);                                       // 1
+void* e_to_lower(const char* STR);                                       // 2
+void* e_insert(const char* src, const char* str, e_size_t start_index);  // 3
 
 /*==============================================================================
                             ADDITIONAL FUNCTIONS
