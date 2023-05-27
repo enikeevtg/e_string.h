@@ -41,6 +41,7 @@ char* e_strtok(char* str, const char* delim);                   // 15
       Special string processing functions (from the String class in C#)
 ==============================================================================*/
 void* e_to_upper(const char* str);  // 1
+void* e_to_lower(const char* STR);  // 2
 
 /*==============================================================================
                             ADDITIONAL FUNCTIONS

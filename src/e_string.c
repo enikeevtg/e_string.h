@@ -242,6 +242,22 @@ void* e_to_upper(const char* str) {
   return (void*)STR;
 }
 
+/*==============================================================================
+                    2 void* to_lower(const char* str):
+          Returns a copy of string (str) converted to lowercase.
+                    In case of any error, return NULL
+==============================================================================*/
+void* e_to_lower(const char* STR) {
+  char* str = E_NULL;
+  if (STR) str = (char*)calloc(e_strlen(STR), sizeof(char));
+  if (str) str = e_strcpy(str, STR);
+  if (str) {
+    char* ptr = str;
+    for (; *ptr; ptr++)
+      if (64 < *ptr && *ptr < 91) *ptr += 32;
+  }
+  return (void*)str;
+}
 
 /*==============================================================================
 

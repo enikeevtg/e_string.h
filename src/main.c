@@ -171,9 +171,18 @@ int main() {
   /*============================================================================
       1 to_upper()
   ============================================================================*/
-  char str[] = "Hello, world!\nПривет, мир!";
-  char* STR = (char*)e_to_upper(str);
-  printf("str: %s\nSTR: %s", str, STR);
-  if (STR) free(STR);
+  // char src[] = "Hello, world!";
+  // char* res = (char*)e_to_upper(src);
+  // printf("src: %s\nres: %s", src, res);
+  // if (res) free(res);
+
+  /*============================================================================
+      1 to_lower()
+  ============================================================================*/
+  char src[] = "HelLO, wORld!";
+  char* res = (char*)e_to_lower(src);
+  printf("src: %s\nres: %s", src, res);
+  if (res) free(res);
+
   return 0;
 }
