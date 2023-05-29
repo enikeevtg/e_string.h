@@ -51,6 +51,6 @@ void* e_trim(const char* src, const char* trim_chars);                   // 4
 char* e_strcpy(char* dest, const char* src);
 char* e_strcat(char* dest, const char* src);
 char* e_inttostr(int c);
-void* change_registr(const char* str, int mode);
+void* change_registr(const char* str, int mode);  // for s21_to_upper/lower()
 
 #endif  // SRC_E_STRING_H_

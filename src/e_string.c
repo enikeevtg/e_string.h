@@ -205,7 +205,7 @@ char* e_strstr(const char* haystack, const char* needle) {
   char* ptr_hay = ptr_chr;
   char* ptr_need = (char*)needle;
   if (ptr_chr)
-    for (; *ptr_hay == *ptr_need; ptr_hay++) ptr_need++;
+    for (; *ptr_need && *ptr_hay == *ptr_need; ptr_hay++) ptr_need++;
   if (*ptr_need && *ptr_hay) ptr_chr = e_strstr(ptr_hay, needle);
   return ptr_chr;
 }

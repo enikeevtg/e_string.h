@@ -173,7 +173,7 @@ int main() {
   ============================================================================*/
   char src[] = "Hello, world!";
   char* res = e_to_upper(src);
-  printf("src: %s\nres: %s", src, res);
+  printf("to_upper\nsrc: %s\nres: %s", src, res);
   if (res) free(res);
 
   /*============================================================================
@@ -181,7 +181,7 @@ int main() {
   ============================================================================*/
 //   char src[] = "HelLO, wORld!";
 //   char* res = e_to_lower(src);
-//   printf("src: %s\nres: %s", src, res);
+//   printf("to_lower\nsrc: %s\nres: %s", src, res);
 //   if (res) free(res);
 
   /*============================================================================
@@ -191,16 +191,16 @@ int main() {
   //   char str[] = "dear ";
   //   e_size_t start = 10;
   //   char* dest = e_insert(src, str, start);
-  //   printf("src: %s\nstr: %s\ndest: %s", src, str, dest);
+  //   printf("insert\nsrc: %s\nstr: %s\ndest: %s", src, str, dest);
   //   if (dest) free(dest);
 
   /*============================================================================
-      4 insert()
+      4 trim()
   ============================================================================*/
 //   char src[] = "***///**   Hello, my friend!   ****  ///";
 //   char trim_chars[] = "* /";
 //   char* dest = e_trim(src, trim_chars);
-//   printf("src: %s\ndest: %s", src, dest);
+//   printf("trim\nsrc: %s\ndest: %s", src, dest);
 //   if (dest) free(dest);
 
   return 0;
