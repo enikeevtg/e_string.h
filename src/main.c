@@ -14,36 +14,36 @@ int main() {
   /*============================================================================
       1 memchr()
   ============================================================================*/
-  //   char str[] = "School 21";
-  //   int c = 'o';
-  //   int bytes = 5;
-  //   printf("memchr result: \"%s\"\n", (char*)memchr(str, c, bytes));
-  //   printf("e_memchr result: \"%s\"\n", (char*)e_memchr(str, c, bytes));
+  // char str[] = "School 21";
+  // int c = 'o';
+  // int bytes = 5;
+  // printf("memchr result: \"%s\"\n", (char*)memchr(str, c, bytes));
+  // printf("e_memchr result: \"%s\"\n", (char*)e_memchr(str, c, bytes));
 
   /*============================================================================
       2 memcmp()
   ============================================================================*/
-  //   char str1[] = "School 21";
-  //   char str2[] = "Schol 21";
-  //   int n = 5;
-  //   printf("memcmp(): %d\n", memcmp(str1, str2, n));
-  //   printf("e_memcmp(): %d", e_memcmp(str1, str2, n));
+  // char str1[] = "School 21";
+  // char str2[] = "Schol 21";
+  // int n = 5;
+  // printf("memcmp(): %d\n", memcmp(str1, str2, n));
+  // printf("e_memcmp(): %d", e_memcmp(str1, str2, n));
 
   /*============================================================================
       3 memcpy()
   ============================================================================*/
-  // char src[] = "src";
-  // char dest1[] = "1234567890";
-  // char dest2[] = "1234567890";
+  //   char src[] = "src";
+  //   char dest1[] = "1234567890";
+  //   char dest2[] = "1234567890";
 
-  // int n = 4;
-  // (char*)memcpy(dest1 + 2, dest1, n);
-  // (char*)e_memcpy(dest2 + 2, dest2, n);
-  // printf("memcpy result: %s\n", dest1);
-  // printf("e_memcpy result: %s\n\n", dest2);
+  //   int n = 4;
+  //   (char*)memcpy(dest1 + 2, dest1, n);
+  //   (char*)e_memcpy(dest2 + 2, dest2, n);
+  //   printf("memcpy result: %s\n", dest1);
+  //   printf("e_memcpy result: %s\n\n", dest2);
 
-  // printf("memcpy result: %s\n", (char*)memcpy(dest1, src, n));
-  // printf("e_memcpy result: %s\n", (char*)e_memcpy(dest2, src, n));
+  //   printf("memcpy result: %s\n", (char*)memcpy(dest1, src, n));
+  //   printf("e_memcpy result: %s\n", (char*)e_memcpy(dest2, src, n));
 
   /*============================================================================
       4 memset()
@@ -60,7 +60,7 @@ int main() {
   /*============================================================================
       5 strncat()
   ============================================================================*/
-  // char* str = (char*)calloc(1, sizeof(char));
+  // char* str = (char*)calloc(80, sizeof(char));
 
   // strncat(str, "Techie ", 2);
   // puts(str);
@@ -122,38 +122,35 @@ int main() {
   /*============================================================================
       10 strerror()
   ============================================================================*/
-  // find for error message list
-  //   e_size_t max = 1;
-  //   e_size_t size = 0;
-  //   for (int i = -5; i < 111; i++) {
-  //     printf("\"%s\", /*%d*/  \\\n", strerror(i), i);
-  //     size = e_strlen(strerror(i));
-  //     if (size > max) max = size;
-  //   }
-  //   printf("%ld\n", max);
-  // for (int i = 0; i < ERR_NUM; i++) printf("\t%d\t\"%s\"\n", i,
-  // e_strerror(i));
+  // find for system error message list
+  // e_size_t max = 1;
+  // e_size_t size = 0;
+  // for (int i = -5; i < ERR_NUM + 1; i++) {
+  //   printf("\"%s\", /*%d*/  \\\n", strerror(i), i);
+  //   size = e_strlen(strerror(i));
+  //   if (size > max) max = size;
+  // }
+  // printf("%ld\n", max);
 
-  //   float c = -2230.584384;
-  //   char* intstr = e_strerror(c);
-  //   printf("string: %s\nlength = %ld\n", intstr, e_strlen(intstr));
+  // test e_strerror()
+  // for (int i = -5; i < ERR_NUM + 1; i++) printf("\t%d\t\"%s\"\n", i,
+  // e_strerror(i));
 
   /*============================================================================
       12 e_strpbrk()
   ============================================================================*/
-  //   char str1[] = "wertyuikjhgf";
-  //   char str2[] = "jik";
-  //   printf("strpbrk result: %s\n", strpbrk(str1, str2));
-  //   printf("e_strpbrk result: %s\n", e_strpbrk(str1, str2));
+  // char str1[] = "wertyuikjhgf";
+  // char str2[] = "jik";
+  // printf("strpbrk result: %s\n", strpbrk(str1, str2));
+  // printf("e_strpbrk result: %s\n", e_strpbrk(str1, str2));
 
   /*============================================================================
       13 e_strrchr()
   ============================================================================*/
-  //   char str1[] = "wertyuiktjhzgf";
-  //   int c = 't';
-  //   printf("strrchr result: \"%s\"\n\"%c\"\n", strrchr(str1, c), c);
-  //   printf("e_strrchr result: \"%s\"\n", e_strrchr(str1, c));
-  // for (int i = 0; i < 512; i++) printf("%c ", i);
+  // char str1[] = "wertyuiktjhzgf";
+  // int c = 't';
+  // printf("strrchr result: \"%s\"\n", strrchr(str1, c));
+  // printf("e_strrchr result: \"%s\"\n", e_strrchr(str1, c));
 
   /*============================================================================
       14 e_strstr()
@@ -163,12 +160,17 @@ int main() {
   // printf("strstr result: \"%s\"\n", strstr(str1, str2));
   // printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
 
+  // char str1[] = "Hello World";
+  // char str2[] = "World";
+  // printf("strstr result: \"%s\"\n", strstr(str1, str2));
+  // printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
+
   /*============================================================================
-      15 e_strstr()
+      15 e_strtok()
   ============================================================================*/
   // char str1[] =
   //     "Hey guys! What\'s up! I study at \"School 21\" programming school:)";
-  // char str2[] = "e";
+  // char str2[] = "!";
   // printf("strtok result: \"%s\"\n", strtok(str1, str2));
   // printf("strtok excess: \"%s\"\n", str1 + strlen(str1) + 1);
   // printf("e_strtok result: \"%s\"\n", e_strtok(str1, str2));
@@ -177,37 +179,37 @@ int main() {
   /*============================================================================
       1 to_upper()
   ============================================================================*/
-  char src[] = "Hello, world!";
-  char* res = e_to_upper(src);
-  printf("to_upper\nsrc: %s\nres: %s", src, res);
-  if (res) free(res);
+  // char src[] = "Hello, world!";
+  // char* res = e_to_upper(src);
+  // printf("to_upper\nsrc: %s\nres: %s", src, res);
+  // if (res) free(res);
 
   /*============================================================================
       2 to_lower()
   ============================================================================*/
-//   char src[] = "HelLO, wORld!";
-//   char* res = e_to_lower(src);
-//   printf("to_lower\nsrc: %s\nres: %s", src, res);
-//   if (res) free(res);
+  // char src[] = "HelLO, wORld!";
+  // char* res = e_to_lower(src);
+  // printf("to_lower\nsrc: %s\nres: %s", src, res);
+  // if (res) free(res);
 
   /*============================================================================
       3 insert()
   ============================================================================*/
-  //   char src[] = "Hello, my friend!";
-  //   char str[] = "dear ";
-  //   e_size_t start = 10;
-  //   char* dest = e_insert(src, str, start);
-  //   printf("insert\nsrc: %s\nstr: %s\ndest: %s", src, str, dest);
-  //   if (dest) free(dest);
+  // char src[] = "Hello, my friend!";
+  // char str[] = "dear ";
+  // e_size_t start = 10;
+  // char* dest = e_insert(src, str, start);
+  // printf("insert\nsrc: %s\nstr: %s\ndest: %s", src, str, dest);
+  // if (dest) free(dest);
 
   /*============================================================================
       4 trim()
   ============================================================================*/
-//   char src[] = "***///**   Hello, my friend!   ****  ///";
-//   char trim_chars[] = "* /";
-//   char* dest = e_trim(src, trim_chars);
-//   printf("trim\nsrc: %s\ndest: %s", src, dest);
-//   if (dest) free(dest);
+  //   char src[] = "/ */** Hello, my friend! * /*/ /";
+  //   char trim_chars[] = "* /";
+  //   char* dest = e_trim(src, trim_chars);
+  //   printf("trim\nsrc: %s\ndest: %s", src, dest);
+  //   if (dest) free(dest);
 
   return 0;
 }

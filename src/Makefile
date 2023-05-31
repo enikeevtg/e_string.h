@@ -1,7 +1,8 @@
 CC = gcc
-CF = -Wall -Werror -Wextra -g
+CF = -Wall -Werror -Wextra
 STD = -std=c11 -pedantic
-ASAN := -fsanitize=address # for memory check
+ASAN = #-g -fsanitize=address
+AR = ar
 NAME = e_string
 
 #OS := $(shell uname)
@@ -20,7 +21,7 @@ build: e_string.a
 test:
 
 e_string.a: e_string.o
-	ar rv lib_$@ $^
+	$(AR) rv lib_$@ $^
 	rm $^
 
 e_string.o:
@@ -32,4 +33,4 @@ style:
 	clang-format -i *.h *.c
 
 clean:
-	rm -rf $(NAME) *.o *.a
+	rm -rf e_string *.o *.a *.out

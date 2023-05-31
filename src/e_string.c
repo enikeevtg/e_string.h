@@ -126,7 +126,8 @@ e_size_t e_strcspn(const char* str1, const char* str2) {
 char* e_strerror(int errnum) {
   static char errmsg[STRERR_MAX];
   if (errnum < 0 || errnum >= ERR_NUM) {
-    e_strncpy(errmsg, "Unknown error: ", 16);
+    UNKNOWN;  // WHY DOES IT WORK? "\_(o_o)_/"
+    e_strcpy(errmsg, unknown);
     e_strcat(errmsg, e_inttostr(errnum));
   } else {
     ERRORLIST;  // WHY DOES IT WORK? "\_(o_o)_/"
@@ -230,15 +231,8 @@ char* e_strtok(char* str, const char* delim) {
                   In case of any error, returning NULL
 ==============================================================================*/
 void* e_to_upper(const char* str) {
-  // char* STR = E_NULL;
-  // if (str) STR = (char*)calloc(e_strlen(str) + 1, sizeof(char));
-  // if (STR) STR = e_strcpy(STR, str);
-  // if (STR) {
-  //   char* ptr = STR;
-  //   for (; *ptr; ptr++)
-  //     if (96 < *ptr && *ptr < 123) *ptr -= 32;
-  // }
-  // return (void*)STR;
+  // Common function change_registr(str, mode)
+  // mode = 1 -> convert to uppercase
   return change_registr(str, 1);
 }
 
@@ -247,16 +241,9 @@ void* e_to_upper(const char* str) {
           Returning a copy of string (str) converted to lowercase.
                   In case of any error, returning NULL
 ==============================================================================*/
-void* e_to_lower(const char* str /*STR*/) {
-  // char* str = E_NULL;
-  // if (STR) str = (char*)calloc(e_strlen(STR) + 1, sizeof(char));
-  // if (str) str = e_strcpy(str, STR);
-  // if (str) {
-  //   char* ptr = str;
-  //   for (; *ptr; ptr++)
-  //     if (64 < *ptr && *ptr < 91) *ptr += 32;
-  // }
-  // return (void*)str;
+void* e_to_lower(const char* str) {
+  // Common function change_registr(str, mode)
+  // mode = -1 -> convert to lowercase
   return change_registr(str, -1);
 }
 
@@ -291,7 +278,7 @@ void* e_trim(const char* src, const char* trim_chars) {
   while (*ptr_left && e_strchr(trim_chars, *ptr_left)) ptr_left++;
   while (*ptr_right && e_strchr(trim_chars, *ptr_right)) ptr_right--;
   if (ptr_left < ptr_right)
-    dest = (char*)calloc(ptr_right - ptr_left + 1, sizeof(char*));
+    dest = (char*)calloc(ptr_right - ptr_left + 2, sizeof(char));
   if (dest) dest = e_strncat(dest, ptr_left, ptr_right - ptr_left + 1);
   return (void*)dest;
 }
@@ -360,8 +347,8 @@ void* change_registr(const char* str, int mode) {
   if (res) {
     char* ptr = res;
     for (; *ptr; ptr++) {
-      if (mode == 1 && 96 < *ptr && *ptr < 123) *ptr -= 32;
-      if (mode == -1 && 64 < *ptr && *ptr < 91) *ptr += 32;
+      if (96 < *ptr && *ptr < 123 && mode == 1) *ptr -= 32;
+      if (64 < *ptr && *ptr < 91 && mode == -1) *ptr += 32;
     }
   }
   return (void*)res;

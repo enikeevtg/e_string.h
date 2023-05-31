@@ -39,10 +39,11 @@ char* e_strtok(char* str, const char* delim);                   // 15
 /*==============================================================================
       SPECIAL STRING PROCESSING FUNCTIONS (FROM THE STRING CLASS IN C#)
 ==============================================================================*/
-void* e_to_upper(const char* str);                                       // 1
-void* e_to_lower(const char* STR);                                       // 2
-void* e_insert(const char* src, const char* str, e_size_t start_index);  // 3
-void* e_trim(const char* src, const char* trim_chars);                   // 4
+void* e_to_upper(const char* str);  // 1
+void* e_to_lower(const char* str);  // 2
+void* e_insert(const char* src, const char* str,
+               e_size_t start_index);                   // 3
+void* e_trim(const char* src, const char* trim_chars);  // 4
 
 /*==============================================================================
                             ADDITIONAL FUNCTIONS
@@ -50,6 +51,6 @@ void* e_trim(const char* src, const char* trim_chars);                   // 4
 char* e_strcpy(char* dest, const char* src);
 char* e_strcat(char* dest, const char* src);
 char* e_inttostr(int c);
-void* change_registr(const char* str, int mode);  // for s21_to_upper/lower()
+void* change_registr(const char* str, int mode);  // for e_to_upper/lower()
 
 #endif  // SRC_E_STRING_H_

@@ -8,7 +8,8 @@
 #ifndef SRC_E_ERRMSG_LIST_H_
 #define SRC_E_ERRMSG_LIST_H_
 
-#ifdef __APPLE__
+#if defined __APPLE__ || defined __MACH__
+#define UNKNOWN const char unknown[16] = "Unknown error: "
 #define ERR_NUM 107
 #define STRERR_MAX 50
 #define ERRORLIST                                                \
@@ -123,6 +124,7 @@
   }
 #endif
 #ifdef __linux__
+#define UNKNOWN const char unknown[15] = "Unknown error "
 #define ERR_NUM 134
 #define STRERR_MAX 50
 #define ERRORLIST                                                  \
