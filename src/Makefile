@@ -1,6 +1,7 @@
 CC = gcc
 CF = -Wall -Werror -Wextra -g
 STD = -std=c11 -pedantic
+ASAN := -fsanitize=address # for memory check
 NAME = e_string
 
 #OS := $(shell uname)
@@ -14,7 +15,7 @@ NAME = e_string
 all: clean build
 
 build: e_string.a
-	$(CC) $(CF) main.c -L. -l_$(NAME) -o $(NAME) $(STD)
+	$(CC) $(CF) main.c -L. -l_$(NAME) -o $(NAME) $(STD) $(ASAN)
 
 test:
 
@@ -23,7 +24,7 @@ e_string.a: e_string.o
 	rm $^
 
 e_string.o:
-	$(CC) $(CF) e_string.c -c $(STD)
+	$(CC) $(CF) e_string.c -c $(STD) $(ASAN)
 
 gcov_report:
 

@@ -3,7 +3,6 @@
  *  Error messages list for e_strerror() function
  *  (c) T. Enikeev
  *  enikeev.tg@gmail.com
- *  zeftyrst@student.21-school.ru
  */
 
 #ifndef SRC_E_ERRMSG_LIST_H_

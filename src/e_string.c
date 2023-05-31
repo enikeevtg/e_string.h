@@ -2,7 +2,6 @@
  *  src/e_string.c
  *  (c) T. Enikeev
  *  enikeev.tg@gmail.com
- *  zeftyrst@student.21-school.ru
  */
 
 #include "e_string.h"

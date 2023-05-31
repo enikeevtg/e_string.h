@@ -1,3 +1,9 @@
+/*
+ *  src/main.c
+ *  (c) T. Enikeev
+ *  enikeev.tg@gmail.com
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

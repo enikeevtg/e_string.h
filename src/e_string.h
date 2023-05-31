@@ -2,7 +2,6 @@
  *  src/e_string.h
  *  (c) T. Enikeev
  *  enikeev.tg@gmail.com
- *  zeftyrst@student.21-school.ru
  */
 
 #ifndef SRC_E_STRING_H_
