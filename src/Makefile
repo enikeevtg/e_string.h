@@ -9,7 +9,7 @@ CF = -Wall -Werror -Wextra
 STD = -std=c11 -pedantic
 ASAN = -g -fsanitize=address
 
-TARGET = e_string.a
+LIB = e_string.a
 EXE = libtest
 
 #OS := $(shell uname)
@@ -22,10 +22,10 @@ EXE = libtest
 
 all: clean test
 
-test: $(TARGET)
+test: $(LIB)
 	$(CC) $(CF) $(STD) $(ASAN) main.c -L. $(TARGET) -o $(EXE)
 
-$(TARGET): e_string.o
+$(LIB): e_string.o
 	$(AR) $@ $^
 	$(RAN) $@
 	$(RM) $^

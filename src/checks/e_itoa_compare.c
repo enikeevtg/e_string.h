@@ -4,7 +4,7 @@
                       Converting integer to string
                             BUFFER algorithm
 ==============================================================================*/
-char* e_inttostrBuf(int c) {
+char* e_itoaBuf(int c) {
   int num = c;
   if (num < 0) num = -c;
   static char strfromint[22] = {0};
@@ -25,7 +25,7 @@ char* e_inttostrBuf(int c) {
                       Converting integer to string
                             DIRECT algorithm
 ==============================================================================*/
-char* e_inttostrDirect(int c) {
+char* e_itoaDirect(int c) {
   int num = 1;
   static char strfromint[22] = {0};
   int pos = 0;
@@ -47,7 +47,7 @@ char* e_inttostrDirect(int c) {
                               Operations counting
                                 BUFFER algorithm
 ==============================================================================*/
-char* e_inttostrBuf(int c) {
+char* e_itoaBuf(int c) {
   int operation_counter = 0;
 
   int num = c;
@@ -90,7 +90,7 @@ char* e_inttostrBuf(int c) {
                               Operations counting
                                 DIRECT algorithm
 ==============================================================================*/
-char* e_inttostrDirect(int c) {
+char* e_itoaDirect(int c) {
   int operation_counter = 0;
 
   int num = 1;
