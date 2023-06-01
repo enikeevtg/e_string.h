@@ -51,7 +51,7 @@ int main() {
   // char dest1[] = "1234567890";
   // char dest2[] = "1234567890";
   // int c = 88;
-  // size_t n = 5;
+  // size_t n = 10;
   // printf("memset() result: %s\ndest1 after memmset(): %s\n",
   //        (char*)memset(dest1, c, n), dest1);
   // printf("e_memset() result: %s\ndest2 after e_memmset(): %s\n",
@@ -168,21 +168,36 @@ int main() {
   /*============================================================================
       15 e_strtok()
   ============================================================================*/
-  // char str1[] =
-  //     "Hey guys! What\'s up! I study at \"School 21\" programming school:)";
-  // char str2[] = "!";
-  // printf("strtok result: \"%s\"\n", strtok(str1, str2));
-  // printf("strtok excess: \"%s\"\n", str1 + strlen(str1) + 1);
-  // printf("e_strtok result: \"%s\"\n", e_strtok(str1, str2));
-  // printf("e_strtok excess: \"%s\"\n", str1 + e_strlen(str1) + 1);
+  char delim[] = " !";
+
+  char str1[] =
+      "Hey guys! What\'s up! I study at \"School 21\" programming school:)";
+  printf("strtok #1 result: \"%s\"\n", strtok(str1, delim));
+  char* dest_orig;
+  int i = 1;
+  while ((dest_orig = strtok(E_NULL, delim)))
+    printf("strtok #%d result: \"%s\"\n", ++i, dest_orig);
+  printf("strtok #over result: \"%s\"\n", strtok(E_NULL, delim));
+  printf("strtok #over result: \"%s\"\n", strtok(E_NULL, delim));
+  printf("\n");
+
+  char str2[] =
+      "Hey guys! What\'s up! I study at \"School 21\" programming school:)";
+  printf("e_strtok #1 result: \"%s\"\n", e_strtok(str2, delim));
+  char* dest_s21;
+  i = 1;
+  while ((dest_s21 = e_strtok(E_NULL, delim)))
+    printf("e_strtok #%d result: \"%s\"\n", ++i, dest_s21);
+  printf("e_strtok #over result: \"%s\"\n", e_strtok(E_NULL, delim));
+  printf("e_strtok #over result: \"%s\"\n", e_strtok(E_NULL, delim));
 
   /*============================================================================
       1 to_upper()
   ============================================================================*/
-  // char src[] = "Hello, world!";
-  // char* res = e_to_upper(src);
-  // printf("to_upper\nsrc: %s\nres: %s", src, res);
-  // if (res) free(res);
+  //   char src[] = "Hello, world!";
+  //   char* res = e_to_upper(src);
+  //   printf("to_upper\nsrc: %s\nres: %s", src, res);
+  //   if (res) free(res);
 
   /*============================================================================
       2 to_lower()

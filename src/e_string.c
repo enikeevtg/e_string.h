@@ -53,11 +53,11 @@ void* e_memcpy(void* dest, const void* src, e_size_t n) {
 void* e_memset(void* str, int c, e_size_t n) {
   char* ptr = (char*)str;
   while (n-- && *ptr) *ptr++ = c;
-  if (!*ptr) {
+  if (!*ptr && !n) {  // duck tape "\_(o_o)_/"
     *ptr++ = c;
     *ptr++ = '\n';
     *ptr++ = '\0';
-  }  // hardcode "\_(o_o)_/"
+  }
   return str;
 }
 
@@ -171,7 +171,7 @@ char* e_strpbrk(const char* str1, const char* str2) {
 
   // SECOND IMPLEMENTATION WITH E_STRCHR():
   while (*str1 && !e_strchr(str2, *str1)) str1++;
-  return (char*)str1;
+  return (*str1) ? (char*)str1 : E_NULL;
 }
 
 /*==============================================================================
@@ -215,8 +215,19 @@ char* e_strstr(const char* haystack, const char* needle) {
         Breaking string str into a series of tokens separated by delim.
 ==============================================================================*/
 char* e_strtok(char* str, const char* delim) {
-  char* ptr_end = e_strpbrk(str, delim);
-  *ptr_end = '\0';
+  static char* next_str;
+  if (str && *str)
+    next_str = str;
+  else
+    str = next_str;                                   // if str = '\0'
+  if (str && *str) next_str = e_strpbrk(str, delim);  // -> to any delim char
+  if (next_str && *next_str) {  // if it's not end of original string
+    *next_str = '\0';
+    next_str++;
+  }
+  if (next_str && !*next_str) str = E_NULL;
+  // if several delim chars stand nearby in original string
+  if (str && e_strlen(str) == 0) e_strtok(str++, delim);
   return str;
 }
 
@@ -343,12 +354,12 @@ char* e_inttostr(int c) {
 void* change_registr(const char* str, int mode) {
   char* res = E_NULL;
   if (str) res = (char*)calloc(e_strlen(str) + 1, sizeof(char));
-  if (res) res = e_strcpy(res, str);
   if (res) {
+    res = e_strcpy(res, str);
     char* ptr = res;
     for (; *ptr; ptr++) {
-      if (96 < *ptr && *ptr < 123 && mode == 1) *ptr -= 32;
-      if (64 < *ptr && *ptr < 91 && mode == -1) *ptr += 32;
+      if (96 < *ptr && *ptr < 123 && mode == 1) *ptr -= 'a' - 'A';  // a -> A
+      if (64 < *ptr && *ptr < 91 && mode == -1) *ptr -= 'A' - 'a';  // A -> a
     }
   }
   return (void*)res;

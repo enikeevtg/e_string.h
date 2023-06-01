@@ -1,9 +1,16 @@
+# all, clean, test, e_string.a, gcov_report
+
 CC = gcc
+AR = ar rv
+RAN = ranlib
+RM = rm -rf
+
 CF = -Wall -Werror -Wextra
 STD = -std=c11 -pedantic
-ASAN = #-g -fsanitize=address
-AR = ar
-NAME = e_string
+ASAN = -g -fsanitize=address
+
+TARGET = e_string.a
+EXE = libtest
 
 #OS := $(shell uname)
 #	ifeq ($(OS), Darwin)
@@ -13,16 +20,15 @@ NAME = e_string
 #		OSF = -D LINUX
 #	endif
 
-all: clean build
+all: clean test
 
-build: e_string.a
-	$(CC) $(CF) main.c -L. -l_$(NAME) -o $(NAME) $(STD) $(ASAN)
+test: $(TARGET)
+	$(CC) $(CF) $(STD) $(ASAN) main.c -L. $(TARGET) -o $(EXE)
 
-test:
-
-e_string.a: e_string.o
-	$(AR) rv lib_$@ $^
-	rm $^
+$(TARGET): e_string.o
+	$(AR) $@ $^
+	$(RAN) $@
+	$(RM) $^
 
 e_string.o:
 	$(CC) $(CF) e_string.c -c $(STD) $(ASAN)
@@ -33,4 +39,6 @@ style:
 	clang-format -i *.h *.c
 
 clean:
-	rm -rf e_string *.o *.a *.out
+	$(RM) $(EXE)
+	$(RM) $(LIB)
+	$(RM) *.o
