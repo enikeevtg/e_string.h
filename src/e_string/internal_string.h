@@ -1,5 +1,5 @@
 /*
- *  src/e_string.h
+ *  src/e_string/internal_string.h
  *  (c) T. Enikeev
  *  enikeev.tg@gmail.com
  */

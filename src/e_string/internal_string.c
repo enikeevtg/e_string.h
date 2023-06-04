@@ -1,5 +1,5 @@
 /*
- *  src/e_string.c
+ *  src/e_string/internal_string.c
  *  (c) T. Enikeev
  *  enikeev.tg@gmail.com
  */

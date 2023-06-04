@@ -13,7 +13,8 @@
                 consists entirely of characters not in str2.
 ==============================================================================*/
 e_size_t e_strcspn(const char* str1, const char* str2) {
-  return e_strpbrk(str1, str2) - str1;
+  char* ptr = e_strpbrk(str1, str2);
+  return ptr ? (e_size_t)(ptr - str1) : e_strlen(str1);
 }
 
 // ANOTHER WAYS:
