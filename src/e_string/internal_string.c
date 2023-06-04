@@ -54,3 +54,17 @@ void* change_registr(const char* str, int mode) {
   }
   return (void*)res;
 }
+
+// ANOTHER WAY WITH STATIC VARIABLE:
+// void* change_registr(const char* str, int mode) {
+//   static char res[1024];
+//   if (str) {
+//     e_strcpy(res, str);
+//     char* ptr = res;
+//     for (; *ptr; ptr++) {
+//       if (96 < *ptr && *ptr < 123 && mode == 1) *ptr -= 'a' - 'A';  // a -> A
+//       if (64 < *ptr && *ptr < 91 && mode == -1) *ptr -= 'A' - 'a';  // A -> a
+//     }
+//   }
+//   return (void*)res;
+// }
