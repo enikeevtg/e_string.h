@@ -11,4 +11,7 @@
           Calculates the length of the initial segment of str1
               which consists entirely of characters in str2.
 ==============================================================================*/
-// e_size_t e_strspn(const char* str1, const char* str2) {}
+e_size_t e_strspn(const char* str1, const char* str2) {
+  e_size_t str = e_strlen(str2) - e_strlen(str1);
+  return str;
+}

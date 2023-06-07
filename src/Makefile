@@ -1,44 +1,66 @@
-# all, clean, test, e_string.a, gcov_report
+.PHONY: all clean test e_string.a gcov_report
 
+# utilities
 CC = gcc
-AR = ar rv
+AR = ar rs
 RAN = ranlib
 RM = rm -rf
+MK = mkdir -p
 
+# utilities options
 CF = -Wall -Werror -Wextra
 STD = -std=c11 -pedantic
 ASAN = -g -fsanitize=address
 
-LIB = e_string.a
-EXE = libtest
+# filenames
+SRCDIR = ./e_string_src/
+OBJDIR = ./e_string_obj/
+SRC = $(wildcard $(SRCDIR)*.c)
+OBJ = $(patsubst $(SRCDIR)%.c, $(OBJDIR)%.o, $(SRC))
+TARGET = e_string.a
+TEST = libtest
 
-#OS := $(shell uname)
-#	ifeq ($(OS), Darwin)
-#		OSF = -D MACOS
-#	endif
-#	ifeq ($(OS), Linux)
-#		OSF = -D LINUX
-#	endif
 
-all: clean test
+all: clean test e_string.a gcov_report
 
-test: $(LIB)
+# LIBRARY BUILDING
+$(TARGET): objects 
+	@$(AR) $@ $(OBJ)
+	@$(RAN) $@
+	@echo "$(AR): creating library e_string.a \033[0;32msuccess\033[0m"
+
+objects: objdir $(OBJ) OBJ_SUCCESS
+
+objdir:
+	@mkdir -p $(OBJDIR)
+
+$(OBJDIR)%.o: $(SRCDIR)%.c
+	@$(CC) $(CF) -c $^ -o $@
+
+OBJ_SUCCESS:
+	@echo "$(CC): objects compilation \033[0;32msuccsess\033[0m"
+
+# UNIT-TESTS
+test: $(TARGET)
 	$(CC) $(CF) $(STD) $(ASAN) main.c -L. $(TARGET) -o $(EXE)
 
-$(LIB): e_string.o
-	$(AR) $@ $^
-	$(RAN) $@
-	$(RM) $^
-
-e_string.o:
-	$(CC) $(CF) e_string.c -c $(STD) $(ASAN)
-
+# TESTS COVERING REPORT
 gcov_report:
 
-style:
-	clang-format -i *.h *.c
 
-clean:
-	$(RM) $(EXE)
-	$(RM) $(LIB)
-	$(RM) *.o
+# SERVICE
+style:
+	clang-format -style=google -n *.h *.c
+	clang-format -style=google -n $(SRCDIR)*.h $(SRCDIR)*.c
+
+tostyle:
+	clang-format -style=google -i *.h *.c
+	clang-format -style=google -i $(SRCDIR)*.h $(SRCDIR)*.c
+
+fclean:
+	@$(RM) $(OBJDIR)
+	@echo "full clean: $(OBJDIR) \033[0;31mdeleted\033[0m"
+	@$(RM) $(TEST)
+	@echo "full clean: $(TEST) \033[0;31mdeleted\033[0m"
+	@$(RM) $(TARGET)
+	@echo "full clean: $(TARGET) \033[0;31mdeleted\033[0m"

@@ -4,7 +4,7 @@
  *  enikeev.tg@gmail.com
  */
 
-#include "internal_string.h"
+#include "../internal_strfuncs.h"
 
 /*==============================================================================
 

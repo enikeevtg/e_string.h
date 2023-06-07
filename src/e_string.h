@@ -12,6 +12,7 @@
 // #define calloc(x,y) NULL
 
 #include "e_errmsg_list.h"
+#include "internal_strfuncs.h"
 
 #define E_NULL ((void*)0)
 #define INT_MAX 2147483647
@@ -45,6 +46,13 @@ void* e_to_lower(const char* STR);  // 2
 void* e_insert(const char* src, const char* str,
                e_size_t start_index);                   // 3
 void* e_trim(const char* src, const char* trim_chars);  // 4
+
+/*==============================================================================
+                        OLD LIST STRING.H FUNCTIONS
+==============================================================================*/
+void* e_memmove(void* dest, const void* src, e_size_t n);
+int e_strcmp(const char* str1, const char* str2);
+e_size_t e_strspn(const char* str1, const char* str2);
 
 /*==============================================================================
                             ADDITIONAL FUNCTIONS

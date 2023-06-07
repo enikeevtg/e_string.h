@@ -4,7 +4,7 @@
  *  enikeev.tg@gmail.com
  */
 
-#include "e_string.h"
+#include "../e_string.h"
 
 /*==============================================================================
               15 char* strtok(char* str, const char* delim):

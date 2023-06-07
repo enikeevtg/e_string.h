@@ -4,7 +4,7 @@
  *  enikeev.tg@gmail.com
  */
 
-#include "internal_string.h"
+#include "../internal_strfuncs.h"
 
 /*==============================================================================
                             char* e_itoa(int c):
@@ -12,7 +12,7 @@
 ==============================================================================*/
 char* e_itoa(int c) {
   int n = 1;
-  static char strofint[22] = {0};
+  static char strofint[11] = {0};
   int pos = 0;
   if (c < 0) {
     c = -c;

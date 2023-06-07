@@ -7,7 +7,7 @@
 #ifndef SRC_E_STRING_INTERNAL_STRING_H_
 #define SRC_E_STRING_INTERNAL_STRING_H_
 
-#include "../e_string.h"
+#include "e_string.h"  // E_NULL
 
 char* e_strcpy(char* dest, const char* src);
 char* e_strcat(char* dest, const char* src);
