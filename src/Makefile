@@ -82,7 +82,7 @@ tostyle:
 
 lclean:
 	@$(RM) $(TARGET)
-	@echo "clean: $(TARGET) \033[0;31mdeleted\033[0m"
+	@echo "library clean: $(TARGET) \033[0;31mdeleted\033[0m"
 
 fclean:
 	@$(RM) $(OBJDIR)
@@ -91,3 +91,5 @@ fclean:
 	@echo "full clean: $(TEST) \033[0;31mdeleted\033[0m"
 	@$(RM) $(TARGET)
 	@echo "full clean: $(TARGET) \033[0;31mdeleted\033[0m"
+	@$(RM) *.dSYM
+	@echo "full clean: *.dSYM \033[0;31mdeleted\033[0m"
