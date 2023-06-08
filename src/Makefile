@@ -18,18 +18,22 @@ OBJDIR = ./e_string_obj/
 SRC = $(wildcard $(SRCDIR)*.c)
 OBJ = $(patsubst $(SRCDIR)%.c, $(OBJDIR)%.o, $(SRC))
 TARGET = e_string.a
+
+TEST_OBJDIR = ./test_e_string_obj/
+TEST_OBJ = $(patsubst $(SRCDIR)%.c, $(TEST_OBJDIR)%.o, $(SRC))
 TEST = libtest
+
 
 
 all: clean test e_string.a gcov_report
 
 # LIBRARY BUILDING
-$(TARGET): objects 
+$(TARGET): lclean objects 
 	@$(AR) $@ $(OBJ)
 	@$(RAN) $@
 	@echo "$(AR): creating library e_string.a \033[0;32msuccess\033[0m"
 
-objects: objdir $(OBJ) OBJ_SUCCESS
+objects: objdir $(OBJ) obj_success
 
 objdir:
 	@mkdir -p $(OBJDIR)
@@ -37,12 +41,31 @@ objdir:
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@$(CC) $(CF) -c $^ -o $@
 
-OBJ_SUCCESS:
+obj_success:
 	@echo "$(CC): objects compilation \033[0;32msuccsess\033[0m"
+# END OF LIBRARY BUILDING
 
 # UNIT-TESTS
-test: $(TARGET)
-	$(CC) $(CF) $(STD) $(ASAN) main.c -L. $(TARGET) -o $(EXE)
+test: lclean $(TARGET)
+	$(CC) $(CF) $(STD) $(ASAN) main.c -L. $(TARGET) -o $(TEST)
+
+$(TARGET): test_objects 
+	@$(AR) $@ $(TEST_OBJ)
+	@$(RAN) $@
+	@echo "$(AR): creating test library e_string.a \033[0;32msuccess\033[0m"
+
+test_objects: test_objdir $(TEST_OBJ) test_obj_success
+
+$(TEST_OBJDIR)%.o: $(SRCDIR)%.c
+	@$(CC) $(CF) $(STD) $(ASAN) -c $^ -o $@
+
+test_objdir:
+	@mkdir -p $(TEST_OBJDIR)
+
+test_obj_success:
+	@echo "$(CC): test objects compilation \033[0;32msuccsess\033[0m"
+# END OF UNIT-TESTS
+
 
 # TESTS COVERING REPORT
 gcov_report:
@@ -56,6 +79,10 @@ style:
 tostyle:
 	clang-format -style=google -i *.h *.c
 	clang-format -style=google -i $(SRCDIR)*.h $(SRCDIR)*.c
+
+lclean:
+	@$(RM) $(TARGET)
+	@echo "clean: $(TARGET) \033[0;31mdeleted\033[0m"
 
 fclean:
 	@$(RM) $(OBJDIR)
