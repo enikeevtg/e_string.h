@@ -24,13 +24,24 @@ TEST_OBJ = $(patsubst $(SRCDIR)%.c, $(TEST_OBJDIR)%.o, $(SRC))
 TEST = libtest
 
 
+# functions
+define library_build
+	mkdir -p $(1)
+	$(CC) $(CF) -c $(SRCDIR)%.c -o $(1)%.o
+endef
+# function doesn't work with % 
+
+func:
+	$(call library_build, $(OBJDIR))
+
 
 all: clean test e_string.a gcov_report
 
+
 # LIBRARY BUILDING
-$(TARGET): lclean objects 
-	@$(AR) $@ $(OBJ)
-	@$(RAN) $@
+lib: lclean objects 
+	@$(AR) $(TARGET) $(OBJ)
+	@$(RAN) $(TARGET)
 	@echo "$(AR): creating library e_string.a \033[0;32msuccess\033[0m"
 
 objects: objdir $(OBJ) obj_success
@@ -45,13 +56,14 @@ obj_success:
 	@echo "$(CC): objects compilation \033[0;32msuccsess\033[0m"
 # END OF LIBRARY BUILDING
 
+
 # UNIT-TESTS
-test: lclean $(TARGET)
+test: libtest
 	$(CC) $(CF) $(STD) $(ASAN) main.c -L. $(TARGET) -o $(TEST)
 
-$(TARGET): test_objects 
-	@$(AR) $@ $(TEST_OBJ)
-	@$(RAN) $@
+libtest: lclean test_objects 
+	@$(AR) $(TARGET) $(TEST_OBJ)
+	@$(RAN) $(TARGET)
 	@echo "$(AR): creating test library e_string.a \033[0;32msuccess\033[0m"
 
 test_objects: test_objdir $(TEST_OBJ) test_obj_success
