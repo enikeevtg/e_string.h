@@ -1,16 +1,17 @@
-/*
- *  src/e_string/e_strrchr.c
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+/**
+ * src/e_string/e_strrchr.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ *
+ * @brief Searching for the last occurrence of the character c
+ * (an unsigned char) in the string pointed to by the argument str.
+ * @return Pointer to the last occurrence of the character c
+ * in the str string or E_NULL pointer if the str string doesn't
+ * contain the character c.
  */
 
 #include "../e_string.h"
 
-/*==============================================================================
-                13 char* strrchr(const char* str, int c)
-          Searching for the last occurrence of the character c
-    (an unsigned char) in the string pointed to by the argument str.
-==============================================================================*/
 char* e_strrchr(const char* str, int c) {
   char* ptr = (char*)str + e_strlen(str);  // pointer to '\0' of string str
   while (ptr != str - sizeof(char) && *ptr != c) ptr--;

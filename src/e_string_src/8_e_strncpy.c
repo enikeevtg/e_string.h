@@ -8,8 +8,8 @@
  * @warning Argument n must be positive and less than or equal to
  * length of src string. Length of dest string must be greater
  * or equal to the n argument.
- * @return Pointer to the dest string without terminating zero
- * at the end.
+ * @return Pointer to the dest string without the terminating null
+ * character in the end.
  */
 
 #include "../e_string.h"

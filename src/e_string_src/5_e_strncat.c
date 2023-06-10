@@ -8,8 +8,8 @@
  * @warning Argument n must be positive and greater than or equal to
  * length of str string. Length of dest string must allow to add
  * n characters from the src string.
- * @return Pointer to increased dest string with terminating zero
- * at the end.
+ * @return Pointer to increased dest string with the terminating null
+ * character in the end.
  */
 
 #include "../e_string.h"

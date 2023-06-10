@@ -4,7 +4,7 @@
  * enikeev.tg@gmail.com
  * 
  * @brief Searching for the first occurrence of the character c
- * (an unsigned char) in the first n bytes of the string pointed to,
+ * (an unsigned char) in the first n bytes of the string pointed to
  * by the argument str.
  * @warning Argument n must be positive and less than or equal to
  * length of string.

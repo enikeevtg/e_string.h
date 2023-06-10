@@ -5,7 +5,8 @@
  * 
  * @brief Comparing at most the first n bytes of two strings.
  * @warning Argument n must be positive and less than or equal to
- * minimum length of strings.
+ * minimum length of strings. Lengths of the str1 and str2 strings
+ * must be greater then or equal to argument n.
  * @return Differenece between first mismatched symbols in strings
  * or nil if strings are equal.
  */

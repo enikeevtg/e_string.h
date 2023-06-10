@@ -1,16 +1,19 @@
-/*
- *  src/e_string/e_strstr.c
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+/**
+ * src/e_string/e_strstr.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ *
+ * @brief Finding the first occurrence of the entire string needle
+ * (not including the terminating null character) which appears
+ * in the string haystack.
+ * @return Pointer to first occurrence of the entire string needle
+ * which appears in the string haystack.
+ * If the haystack string doesn't contain the entire needle string
+ * then the pointer points to terminating null character. 
  */
 
 #include "../e_string.h"
 
-/*==============================================================================
-          14 char* strstr(const char* haystack, const char* needle):
-      Finding the first occurrence of the entire string needle (not including
-      the terminating null character) which appears in the string haystack.
-==============================================================================*/
 char* e_strstr(const char* haystack, const char* needle) {
   char* ptr_chr = e_strchr(haystack, *needle);
   char* ptr_hay = ptr_chr;

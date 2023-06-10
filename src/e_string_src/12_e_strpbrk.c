@@ -1,17 +1,16 @@
-/*
- *  src/e_string/e_strpbrk.c
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+/**
+ * src/e_string/e_strpbrk.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ * 
+ * @brief Finding the first character in the string str1
+ * that matches any character specified in str2.
+ * @return Pointer to the first character in the string str1
+ * that matches any character specified in str2.
  */
 
 #include "../e_string.h"
 
-/*==============================================================================
-          12 char* strpbrk(const char* str1, const char* str2):
-                            Pointer BReaK
-        Finding the first character in the string str1 that matches
-                    any character specified in str2.
-==============================================================================*/
 char* e_strpbrk(const char* str1, const char* str2) {
   while (*str1 && !e_strchr(str2, *str1)) str1++;
   return (*str1) ? (char*)str1 : E_NULL;

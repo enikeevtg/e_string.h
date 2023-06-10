@@ -1,17 +1,20 @@
-/*
- *  src/e_string/e_trim.c
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+/**
+ * src/e_string/e_trim.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ * 
+ * @brief Creating a new string in which all leading and trailing occurrences
+ * of a set of specified characters (trim_chars) from the given string (src)
+ * are removed.
+ * @warning This function uses calloc(), so free() function is required to
+ * use by user after calling this function.
+ * @return Pointer to a new string in which all leading and trailing
+ * occurrences of a set of specified characters (trim_chars) from the given
+ * string (src) was removed. In case of any error function returns E_NULL.
  */
 
 #include "../e_string.h"
 
-/*==============================================================================
-            4 void* trim(const char* src, const char* trim_chars):
-          Returning a new string in which all leading and trailing
-      occurrences of a set of specified characters (trim_chars) from
-  the given string (src) are removed. In case of any error, returning NULL
-==============================================================================*/
 void* e_trim(const char* src, const char* trim_chars) {
   char* dest = E_NULL;
   char* ptr_left = (char*)src;

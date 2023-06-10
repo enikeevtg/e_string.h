@@ -1,16 +1,15 @@
 /*
- *  src/e_string/internal_string.c
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+ * src/e_string/internal_string.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ * 
+ * @brief Internal e_string library functions. change_registr() function is
+ * required
+ * for e_upper() and e_lower() functions.
  */
 
 #include "../internal_strfuncs.h"
 
-/*==============================================================================
-
-                              INTERNAL FUNCTIONS
-
-==============================================================================*/
 /*==============================================================================
                   char* strcpy(char* dest, const char* src):
                 Copying the string pointed to, by src to dest.

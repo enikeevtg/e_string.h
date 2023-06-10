@@ -1,15 +1,15 @@
-/*
- *  src/e_string/e_itoa.c
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+/**
+ * src/e_string/e_itoa.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ * 
+ * @brief Internal e_string library function that converts integer to string.
+ * It is required for e_strerror() function.
+ * @return Pointer to a new static string that contains integer number. 
  */
 
 #include "../internal_strfuncs.h"
 
-/*==============================================================================
-                            char* e_itoa(int c):
-                  Converting integer to string (direct algorithm)
-==============================================================================*/
 char* e_itoa(int c) {
   int n = 1;
   static char strofint[11] = {0};

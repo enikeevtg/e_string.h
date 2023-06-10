@@ -1,17 +1,19 @@
-/*
- *  src/e_string/e_insert.c
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+/**
+ * src/e_string/e_insert.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ * 
+ * @brief Creating a new string in which a specified string (str) is inserted
+ * at a specified index position (start_index) in the given string (src).
+ * @warning This function uses calloc(), so free() function is required to
+ * use by user after calling this function.
+ * @return Pointer to a new string in which a specified string (str) is
+ * inserted at a specified index position (start_index) in the given string
+ * (src). In case of any error function returns E_NULL.
  */
 
 #include "../e_string.h"
 
-/*==============================================================================
-      3. void* insert(const char* src, const char* str, size_t start_index):
-    Returning a new string in which a specified string (str) is inserted at a
-        specified index position (start_index) in the given string (src).
-                    In case of any error, returning NULL
-==============================================================================*/
 void* e_insert(const char* src, const char* str, e_size_t start_index) {
   char* dest = E_NULL;
   e_size_t dest_len = e_strlen(src) + e_strlen(str) + 1;
