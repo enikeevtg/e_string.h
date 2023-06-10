@@ -12,6 +12,7 @@
 #include "../e_string.h"
 
 e_size_t e_strspn(const char* str1, const char* str2) {
-  e_size_t str = e_strlen(str2) - e_strlen(str1);
-  return str;
+  e_size_t count = 0;
+  for (; *str1, *str2, *str1 == *str2; str1++, str2++) count++;
+  return count;
 }
