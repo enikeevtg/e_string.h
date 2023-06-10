@@ -1,19 +1,16 @@
-/*
- *  src/e_string/e_strerror.c
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+/**
+ * src/e_string/e_strerror.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ * 
+ * @brief Searching an internal array for the error number errnum.
+ * Array of error messages depends on operating systems
+ * (mac or linux). Arrays are placed in e_errmsg_list.h file.
+ * @return Pointer to an error message string.
  */
 
 #include "../e_string.h"
 
-/*==============================================================================
-                      10 char* strerror(int errnum):
-      Searching an internal array for the error number errnum and returns
-  a pointer to an error message string. You need to declare macros containing
-        arrays of error messages for mac and linux operating systems.
-          Error descriptions are available in the original library.
-          Checking the current OS is carried out using directives.
-==============================================================================*/
 char* e_strerror(int errnum) {
   static char errmsg[STRERR_MAX];
   if (errnum < 0 || errnum >= ERR_NUM) {

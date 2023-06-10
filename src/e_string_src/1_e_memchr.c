@@ -9,8 +9,8 @@
  * @warning Argument n must be positive and less than or equal to
  * length of string.
  * @return Pointer to the first occurrence of the character c
- * in the first n bytes of the str or E_NULL pointer if str doesn't contain
- * the character c.
+ * in the first n bytes of the str string or E_NULL pointer
+ * if the str string doesn't contain the character c.
  */
 
 #include "../e_string.h"

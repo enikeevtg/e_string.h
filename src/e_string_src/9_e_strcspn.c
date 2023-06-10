@@ -1,17 +1,16 @@
-/*
- *  src/e_string/e_strcspn.c
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+/**
+ * src/e_string/e_strcspn.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
+ * 
+ * @brief Calculating the length of the initial segment of str1
+ * which consists entirely of characters not in str2.
+ * @return Length of initial segment of str1 which consists
+ * entirely of characters not in str2.
  */
 
 #include "../e_string.h"
 
-/*==============================================================================
-            9 size_t strcspn(const char* str1, const char* str2):
-                    Count String Pointers Number (?)
-          Calculating the length of the initial segment of str1 which
-                consists entirely of characters not in str2.
-==============================================================================*/
 e_size_t e_strcspn(const char* str1, const char* str2) {
   char* ptr = e_strpbrk(str1, str2);
   return ptr ? (e_size_t)(ptr - str1) : e_strlen(str1);
