@@ -1,7 +1,7 @@
 /*
- *  src/main.c
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+ * src/main.c
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
  */
 
 #include <stdio.h>

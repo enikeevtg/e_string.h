@@ -1,7 +1,7 @@
 /*
- *  src/e_string.h
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+ * src/e_string.h
+ * (c) T. Enikeev
+ * enikeev.tg@gmail.com
  */
 
 #ifndef SRC_E_STRING_H_

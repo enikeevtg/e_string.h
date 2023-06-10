@@ -6,10 +6,11 @@
  * @brief Searching for the first occurrence of the character c
  * (an unsigned char) in the first n bytes of the string pointed to,
  * by the argument str.
- * @warning Argument n must be positive and less or equal than length str.
+ * @warning Argument n must be positive and less than or equal to
+ * length of string.
  * @return Pointer to the first occurrence of the character c
  * in the first n bytes of the str or E_NULL pointer if str doesn't contain
- * character c.
+ * the character c.
  */
 
 #include "../e_string.h"
