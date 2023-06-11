@@ -5,6 +5,7 @@
  *
  * @brief Finding the first character in the string str1
  * that matches any character specified in str2.
+ * @warning str1 and str2 strings must be allocated in memory.
  * @return Pointer to the first character in the string str1
  * that matches any character specified in str2.
  */
@@ -36,4 +37,15 @@ char* e_strpbrk(const char* str1, const char* str2) {
 // IF E_STRCSPN() NOT DEPEND ON E_STRPBRK()
 // char* e_strpbrk(const char* str1, const char* str2) {
 //   return (char*)str1 + e_strcspn(str1, str2);
+// }
+
+// WITH E_NULL CHECKING:
+// char *e_strpbrk(const char *str1, const char *str2) {
+//   if (str1 && str2) {
+//     while (*str1 && !e_strchr(str2, *str1)) str1++;
+//     if (!*str1) str1 = E_NULL;
+//   } else {
+//     str1 = E_NULL;
+//   }
+//     return (char *)str1;
 // }

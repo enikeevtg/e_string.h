@@ -13,17 +13,19 @@
 #include "../e_string.h"
 
 char* e_strtok(char* str, const char* delim) {
-  static char* next_str;
-  if (str)
-    next_str = str;
-  // else
-  //   str = next_str;                                   // if str = '\0'
-  while (next_str && *next_str && e_strchr(delim, *next_str)) next_str++;
-  if (next_str && !*next_str) str = E_NULL;
-  if (str && *str) next_str = e_strpbrk(str, delim);  // -> to any delim char
+  static char *next_str;
+  if (!str) str = next_str;
+  while (str && *str && e_strchr(delim, *str)) str++;
+  next_str = str;
+  if (next_str && *next_str)
+    next_str = e_strpbrk(str, delim);  // -> to any delim char
+  else
+    str = E_NULL;  // if it's the end of original string
   if (str && next_str && *next_str) {  // if it's not end of original string
     *next_str = '\0';
-    // next_str++;
+    next_str++;
   }
+  else
+    next_str = E_NULL;
   return str;
 }
