@@ -13,6 +13,6 @@
 
 e_size_t e_strspn(const char* str1, const char* str2) {
   e_size_t count = 0;
-  for (; *str1, *str2, *str1 == *str2; str1++, str2++) count++;
+  for (; *str1 && *str2 && *str1 == *str2; str1++, str2++) count++;
   return count;
 }

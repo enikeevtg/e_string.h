@@ -53,13 +53,13 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 	@$(CC) $(CF) -c $^ -o $@
 
 obj_success:
-	@echo "$(CC): objects compilation \033[0;32msuccsess\033[0m"
+	@echo "$(CC): objects compilation \033[0;32msuccess\033[0m"
 # END OF LIBRARY BUILDING
 
 
 # UNIT-TESTS
 test: libtest
-	$(CC) $(CF) $(STD) $(ASAN) main.c -L. $(TARGET) -o $(TEST)
+	$(CC) $(CF) $(STD) $(ASAN) manual_tests.c -L. $(TARGET) -o $(TEST)
 
 libtest: lclean test_objects 
 	@$(AR) $(TARGET) $(TEST_OBJ)
@@ -75,7 +75,7 @@ test_objdir:
 	@mkdir -p $(TEST_OBJDIR)
 
 test_obj_success:
-	@echo "$(CC): test objects compilation \033[0;32msuccsess\033[0m"
+	@echo "$(CC): test objects compilation \033[0;32msuccess\033[0m"
 # END OF UNIT-TESTS
 
 

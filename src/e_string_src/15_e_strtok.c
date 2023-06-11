@@ -14,17 +14,16 @@
 
 char* e_strtok(char* str, const char* delim) {
   static char* next_str;
-  if (str && *str)
+  if (str)
     next_str = str;
-  else
-    str = next_str;                                   // if str = '\0'
-  if (str && *str) next_str = e_strpbrk(str, delim);  // -> to any delim char
-  if (next_str && *next_str) {  // if it's not end of original string
-    *next_str = '\0';
-    next_str++;
-  }
+  // else
+  //   str = next_str;                                   // if str = '\0'
+  while (next_str && *next_str && e_strchr(delim, *next_str)) next_str++;
   if (next_str && !*next_str) str = E_NULL;
-  // if several delim characters stand nearby in original string
-  if (str && e_strlen(str) == 0) e_strtok(str++, delim);
+  if (str && *str) next_str = e_strpbrk(str, delim);  // -> to any delim char
+  if (str && next_str && *next_str) {  // if it's not end of original string
+    *next_str = '\0';
+    // next_str++;
+  }
   return str;
 }

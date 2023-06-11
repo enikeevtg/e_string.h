@@ -168,10 +168,12 @@ int main() {
   /*============================================================================
       15 e_strtok()
   ============================================================================*/
-  char delim[] = " !";
+  // char delim[] = " !";
+  char delim[] = " ";
 
-  char str1[] =
-      "Hey guys! What\'s up! I study at \"School 21\" programming school:)";
+  // char str1[] =
+  //     "Hey guys!        W!hat\'s up! I study at \"School 21\" programming school:)";
+  char str1[] = "\0Hello, world!";
   printf("strtok #1 result: \"%s\"\n", strtok(str1, delim));
   char* dest_orig;
   int i = 1;
@@ -181,12 +183,13 @@ int main() {
   printf("strtok #over result: \"%s\"\n", strtok(E_NULL, delim));
   printf("\n");
 
-  char str2[] =
-      "Hey guys! What\'s up! I study at \"School 21\" programming school:)";
-  printf("e_strtok #1 result: \"%s\"\n", e_strtok(str2, delim));
+  // char str2[] =
+  //     "Hey guys!        W!hat\'s up! I study at \"School 21\" programming school:)";
+  char str2[] = "\0Hello, world!";
+  printf("e_strtok #1 result: \"%s\"\n", e_strtok(E_NULL, delim));
   char* dest_s21;
   i = 1;
-  while ((dest_s21 = e_strtok(E_NULL, delim)))
+  while ((dest_s21 = e_strtok(str2, delim)))
     printf("e_strtok #%d result: \"%s\"\n", ++i, dest_s21);
   printf("e_strtok #over result: \"%s\"\n", e_strtok(E_NULL, delim));
   printf("e_strtok #over result: \"%s\"\n", e_strtok(E_NULL, delim));
