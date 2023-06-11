@@ -2,7 +2,7 @@
  * src/e_string/e_memcpy.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Copying n characters from src string to dest string.
  * @warning Argument n must be positive and less than or equal to
  * length of src string. Length of dest string must be greater

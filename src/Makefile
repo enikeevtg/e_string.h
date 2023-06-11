@@ -86,11 +86,11 @@ gcov_report:
 # SERVICE
 style:
 	clang-format -style=google -n *.h *.c
-	clang-format -style=google -n $(SRCDIR)*.h $(SRCDIR)*.c
+	clang-format -style=google -n $(SRCDIR)*
 
 tostyle:
 	clang-format -style=google -i *.h *.c
-	clang-format -style=google -i $(SRCDIR)*.h $(SRCDIR)*.c
+	clang-format -style=google -i $(SRCDIR)*
 
 lclean:
 	@$(RM) $(TARGET)

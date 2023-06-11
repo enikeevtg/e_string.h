@@ -9,7 +9,7 @@
  * @return Pointer to first occurrence of the entire string needle
  * which appears in the string haystack.
  * If the haystack string doesn't contain the entire needle string
- * then the pointer points to terminating null character. 
+ * then the pointer points to terminating null character.
  */
 
 #include "../e_string.h"

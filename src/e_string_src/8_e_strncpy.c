@@ -2,7 +2,7 @@
  * src/e_string/e_strncpy.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Copying up to n characters from the string pointed to,
  * by src to dest.
  * @warning Argument n must be positive and less than or equal to
@@ -21,4 +21,4 @@ char* e_strncpy(char* dest, const char* src, e_size_t n) {
 }
 
 // ANOTHER WAYS:
-  // for (e_size_t i = 0; /* *src && */ i < n; i++) *(dest + i) = *src++;
+// for (e_size_t i = 0; /* *src && */ i < n; i++) *(dest + i) = *src++;

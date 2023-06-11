@@ -2,7 +2,7 @@
  * src/e_string/e_strcmp.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Comparing the string pointed to, by str1 to the string
  * pointed to by str2.
  * @return Differenece between first mismatched symbols in strings

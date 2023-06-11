@@ -2,7 +2,7 @@
  * src/e_string/e_strspn.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Calculating the length of the initial segment of str1
  * which consists entirely of characters in str2.
  * @return Length of initial segment of str1 which consists

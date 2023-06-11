@@ -2,7 +2,7 @@
  * src/e_string/internal_string.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Internal e_string library functions. change_registr() function is
  * required
  * for e_upper() and e_lower() functions.

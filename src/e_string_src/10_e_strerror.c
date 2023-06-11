@@ -2,7 +2,7 @@
  * src/e_string/e_strerror.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Searching an internal array for the error number errnum.
  * Array of error messages depends on operating systems
  * (mac or linux). Arrays are placed in e_errmsg_list.h file.

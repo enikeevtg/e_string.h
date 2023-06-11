@@ -2,7 +2,7 @@
  * src/e_string/e_memchr.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Searching for the first occurrence of the character c
  * (an unsigned char) in the first n bytes of the string pointed to
  * by the argument str.

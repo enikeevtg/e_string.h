@@ -1,6 +1,6 @@
 /*
- *  src/e_string/internal_string.h
- *  (c) T. Enikeev
+ * src/e_string/internal_string.h
+ * (c) T. Enikeev
  *  enikeev.tg@gmail.com
  */
 

@@ -2,7 +2,7 @@
  * src/e_string/e_strpbrk.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Finding the first character in the string str1
  * that matches any character specified in str2.
  * @return Pointer to the first character in the string str1

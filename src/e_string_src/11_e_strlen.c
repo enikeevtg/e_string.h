@@ -2,8 +2,8 @@
  * src/e_string/e_strlen.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
- * @brief Computing the length of the string str up to 
+ *
+ * @brief Computing the length of the string str up to
  * but not including the terminating null character.
  * @return Length of the string str.
  */

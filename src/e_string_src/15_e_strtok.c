@@ -2,7 +2,7 @@
  * src/e_string/e_strtok.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Breaking string str into a series of tokens separated by delim.
  * @return Pointer to the changed str string if str is not E_NULL pointer.
  * In another case pointer to next token of original string will be returned.

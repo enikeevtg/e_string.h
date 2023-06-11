@@ -2,7 +2,7 @@
  * src/e_string/e_memset.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Copying the character c (an unsigned char) to the first n
  * characters of the string pointed to by the argument str.
  * @warning Argument n must be positive and greater than or equal to

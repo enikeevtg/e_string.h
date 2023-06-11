@@ -2,7 +2,7 @@
  * src/e_string/e_insert.c
  * (c) T. Enikeev
  * enikeev.tg@gmail.com
- * 
+ *
  * @brief Creating a new string in which a specified string (str) is inserted
  * at a specified index position (start_index) in the given string (src).
  * @warning This function uses calloc(), so free() function is required to
