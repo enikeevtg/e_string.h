@@ -16,10 +16,15 @@ int main() {
   ============================================================================*/
   // char str[] = "School 21";
   // int c = 'o';
-  // int bytes = 5;
+  // int bytes = 5000;
   // printf("memchr result: \"%s\"\n", (char*)memchr(str, c, bytes));
   // printf("e_memchr result: \"%s\"\n", (char*)e_memchr(str, c, bytes));
 
+  // float str[] = {1, 2, 3, 576, 9, 34};
+  // int c = 576;
+  // int bytes = sizeof(float) * 6;
+  // printf("memchr result: \"%p\"\n", memchr(str, c, bytes));
+  // printf("e_memchr result: \"%p\"\n", e_memchr(str, c, bytes));
   /*============================================================================
       2 memcmp()
   ============================================================================*/
@@ -28,6 +33,15 @@ int main() {
   // int n = 5;
   // printf("memcmp(): %d\n", memcmp(str1, str2, n));
   // printf("e_memcmp(): %d", e_memcmp(str1, str2, n));
+
+  /*============================================================================
+      2 strncmp()
+  ============================================================================*/
+  // char *str1 = E_NULL;
+  // char str2[] = "School 21";
+  // int n = 5;
+  // printf("strncmp(): %d\n", strncmp(str1, str2, n));
+  // printf("e_strncmp(): %d", e_strncmp(str1, str2, n));
 
   /*============================================================================
       3 memcpy()
@@ -160,10 +174,10 @@ int main() {
   // printf("strstr result: \"%s\"\n", strstr(str1, str2));
   // printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
 
-  // char str1[] = "Hello World";
-  // char str2[] = "World";
-  // printf("strstr result: \"%s\"\n", strstr(str1, str2));
-  // printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
+  char str1[] = "Hello, World";
+  char str2[] = "Hello, World";
+  printf("strstr result: \"%s\"\n", strstr(str1, str2));
+  printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
 
   /*============================================================================
       15 e_strtok()
@@ -209,12 +223,12 @@ int main() {
   /*============================================================================
       3 insert()
   ============================================================================*/
-  char src[] = "Hello, my friend!";
-  char str[] = "dear ";
-  e_size_t start = 17;
-  char* dest = e_insert(src, str, start);
-  printf("insert\nsrc: %s\nstr: %s\ndest: %s", src, str, dest);
-  if (dest) free(dest);
+  // char src[] = "Hello, my friend!";
+  // char str[] = "dear ";
+  // e_size_t start = 17;
+  // char* dest = e_insert(src, str, start);
+  // printf("insert\nsrc: %s\nstr: %s\ndest: %s", src, str, dest);
+  // if (dest) free(dest);
 
   /*============================================================================
       4 trim()
