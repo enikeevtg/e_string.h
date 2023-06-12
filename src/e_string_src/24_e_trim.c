@@ -15,7 +15,7 @@
 
 #include "../e_string.h"
 
-void* e_trim(const char* src, const char* trim_chars) {
+void *e_trim(const char *src, const char *trim_chars) {
   char *dest = E_NULL;
   if (!trim_chars || !*trim_chars) {
     char default_trims[] = " \t\n";

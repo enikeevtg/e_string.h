@@ -16,12 +16,14 @@
 
 void* e_insert(const char* src, const char* str, e_size_t start_index) {
   char* dest = E_NULL;
-  e_size_t dest_len = e_strlen(src) + e_strlen(str) + 1;
-  if (src && str) dest = (char*)calloc(dest_len, sizeof(char));
-  if (dest) {
-    dest = e_strncat(dest, src, start_index);
-    dest = e_strcat(dest, str);
-    dest = e_strcat(dest, src + start_index);
+  if (src && str && e_strlen(src) >= start_index) {
+    e_size_t dest_len = e_strlen(src) + e_strlen(str) + 1;
+    if (src && str) dest = (char*)calloc(dest_len, sizeof(char));
+    if (dest) {
+      dest = e_strncat(dest, src, start_index);
+      dest = e_strcat(dest, str);
+      dest = e_strcat(dest, src + start_index);
+    }
   }
   return (void*)dest;
 }

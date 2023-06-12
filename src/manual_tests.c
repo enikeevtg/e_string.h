@@ -172,24 +172,20 @@ int main() {
   // char delim[] = " ";
 
   // // char str1[] =
-  // //     "Hey guys!        W!hat\'s up! I study at \"School 21\" programming school:)";
-  // char str1[] = "\0Hello, world!";
-  // printf("strtok #1 result: \"%s\"\n", strtok(str1, delim));
-  // char* dest_orig;
-  // int i = 1;
-  // while ((dest_orig = strtok(E_NULL, delim)))
+  // //     "Hey guys!        W!hat\'s up! I study at \"School 21\" programming
+  // school:)"; char str1[] = "\0Hello, world!"; printf("strtok #1 result:
+  // \"%s\"\n", strtok(str1, delim)); char* dest_orig; int i = 1; while
+  // ((dest_orig = strtok(E_NULL, delim)))
   //   printf("strtok #%d result: \"%s\"\n", ++i, dest_orig);
   // printf("strtok #over result: \"%s\"\n", strtok(E_NULL, delim));
   // printf("strtok #over result: \"%s\"\n", strtok(E_NULL, delim));
   // printf("\n");
 
   // // char str2[] =
-  // //     "Hey guys!        W!hat\'s up! I study at \"School 21\" programming school:)";
-  // char str2[] = "\0Hello, world!";
-  // printf("e_strtok #1 result: \"%s\"\n", e_strtok(E_NULL, delim));
-  // char* dest_s21;
-  // i = 1;
-  // while ((dest_s21 = e_strtok(str2, delim)))
+  // //     "Hey guys!        W!hat\'s up! I study at \"School 21\" programming
+  // school:)"; char str2[] = "\0Hello, world!"; printf("e_strtok #1 result:
+  // \"%s\"\n", e_strtok(E_NULL, delim)); char* dest_s21; i = 1; while
+  // ((dest_s21 = e_strtok(str2, delim)))
   //   printf("e_strtok #%d result: \"%s\"\n", ++i, dest_s21);
   // printf("e_strtok #over result: \"%s\"\n", e_strtok(E_NULL, delim));
   // printf("e_strtok #over result: \"%s\"\n", e_strtok(E_NULL, delim));
@@ -213,12 +209,12 @@ int main() {
   /*============================================================================
       3 insert()
   ============================================================================*/
-  // char src[] = "Hello, my friend!";
-  // char str[] = "dear ";
-  // e_size_t start = 10;
-  // char* dest = e_insert(src, str, start);
-  // printf("insert\nsrc: %s\nstr: %s\ndest: %s", src, str, dest);
-  // if (dest) free(dest);
+  char src[] = "Hello, my friend!";
+  char str[] = "dear ";
+  e_size_t start = 17;
+  char* dest = e_insert(src, str, start);
+  printf("insert\nsrc: %s\nstr: %s\ndest: %s", src, str, dest);
+  if (dest) free(dest);
 
   /*============================================================================
       4 trim()
