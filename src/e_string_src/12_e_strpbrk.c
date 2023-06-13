@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strpbrk.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Finding the first character in the string str1

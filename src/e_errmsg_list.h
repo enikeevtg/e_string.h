@@ -1,8 +1,9 @@
-/*
- *  src/e_errmsg_list.h
- *  Error messages list for e_strerror() function
- *  (c) T. Enikeev
- *  enikeev.tg@gmail.com
+/**
+ * src/e_errmsg_list.h
+ * @authors T. Enikeev
+ * enikeev.tg@gmail.com
+ *
+ * @brief Error messages list for e_strerror() function
  */
 
 #ifndef SRC_E_ERRMSG_LIST_H_

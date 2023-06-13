@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strncmp.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Comparing at most the first n bytes of two strings.

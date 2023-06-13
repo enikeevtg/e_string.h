@@ -1,6 +1,6 @@
-/*
+/**
  * src/e_string.h
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  */
 

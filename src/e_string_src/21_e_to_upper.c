@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_to_upper.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Creating a copy of string str converted to uppercase on the heap.

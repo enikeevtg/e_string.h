@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strerror.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Searching an internal array for the error number errnum.
@@ -16,7 +16,7 @@ char* e_strerror(int errnum) {
   if (errnum < 0 || errnum >= ERR_NUM) {
     UNKNOWN;  // WHY DOES IT WORK? "\_(o_o)_/"
     e_strcpy(errmsg, unknown);
-    e_strcat(errmsg, e_inttostr(errnum));
+    e_strcat(errmsg, e_itoa(errnum));
   } else {
     ERRORLIST;  // WHY DOES IT WORK? "\_(o_o)_/"
     e_strcpy(errmsg, e_errmsg_list[errnum]);

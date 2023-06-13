@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strtok.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Breaking string str into a series of tokens separated by delim.

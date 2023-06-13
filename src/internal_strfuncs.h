@@ -1,7 +1,7 @@
-/*
+/**
  * src/e_string/internal_string.h
- * (c) T. Enikeev
- *  enikeev.tg@gmail.com
+ * @authors T. Enikeev
+ * enikeev.tg@gmail.com
  */
 
 #ifndef SRC_E_STRING_INTERNAL_STRING_H_

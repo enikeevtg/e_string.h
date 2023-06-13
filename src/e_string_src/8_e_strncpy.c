@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strncpy.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Copying up to n characters from the string pointed to,

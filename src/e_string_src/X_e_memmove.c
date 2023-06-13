@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_memmove.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Copying n characters from src string to dest string.

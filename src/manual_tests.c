@@ -1,7 +1,9 @@
-/*
- * src/main.c
- * (c) T. Enikeev
+/**
+ * src/manual_tests.c
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
+ *
+ * @brief manual tests for e_string.h library 
  */
 
 #include <stdio.h>
@@ -147,8 +149,8 @@ int main() {
   // printf("%ld\n", max);
 
   // test e_strerror()
-  // for (int i = -5; i < ERR_NUM + 1; i++) printf("\t%d\t\"%s\"\n", i,
-  // e_strerror(i));
+  for (int i = -5; i < ERR_NUM + 1; i++) printf("\t%d\t\"%s\"\n", i,
+  e_strerror(i));
 
   /*============================================================================
       12 e_strpbrk()
@@ -174,10 +176,10 @@ int main() {
   // printf("strstr result: \"%s\"\n", strstr(str1, str2));
   // printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
 
-  char str1[] = "Hello, World";
-  char str2[] = "Hello, World";
-  printf("strstr result: \"%s\"\n", strstr(str1, str2));
-  printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
+  // char str1[] = "Hello, World";
+  // char str2[] = "Hello, World";
+  // printf("strstr result: \"%s\"\n", strstr(str1, str2));
+  // printf("e_strstr result: \"%s\"", e_strstr(str1, str2));
 
   /*============================================================================
       15 e_strtok()

@@ -29,7 +29,7 @@ define library_build
 	mkdir -p $(1)
 	$(CC) $(CF) -c $(SRCDIR)%.c -o $(1)%.o
 endef
-# function doesn't work with % 
+# function doesn't work with %
 
 func:
 	$(call library_build, $(OBJDIR))

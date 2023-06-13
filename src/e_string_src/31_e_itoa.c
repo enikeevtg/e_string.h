@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_itoa.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Internal e_string library function that converts integer to string.

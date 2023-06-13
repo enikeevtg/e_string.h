@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strchr.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Searching for the first occurrence of the character c

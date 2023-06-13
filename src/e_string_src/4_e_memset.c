@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_memset.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Copying the character c (an unsigned char) to the first n
@@ -15,6 +15,6 @@
 
 void* e_memset(void* str, int c, e_size_t n) {
   char* ptr = (char*)str;
-  while (n-- && *ptr) *ptr++ = c;
+  while (n-- && *ptr) *ptr++ = (char)c;
   return str;
 }

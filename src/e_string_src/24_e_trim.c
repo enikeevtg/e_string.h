@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_trim.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Creating a new string in which all leading and trailing occurrences

@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strrchr.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Searching for the last occurrence of the character c

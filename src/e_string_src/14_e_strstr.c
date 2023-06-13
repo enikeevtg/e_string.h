@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strstr.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Finding the first occurrence of the entire string needle
@@ -38,20 +38,6 @@ char* e_strstr(const char* haystack, const char* needle) {
 //   if (ptr_chr) {
 //     for (; *ptr_need && *ptr_hay == *ptr_need; ptr_hay++) ptr_need++;
 //     if (*ptr_need) ptr_chr = e_strstr(ptr_hay, needle);
-//   }
-//   return ptr_chr;
-// }
-
-
-// char *e_strstr(const char *haystack, const char *needle) {
-//   char* ptr_chr = e_strchr(haystack, *needle);
-//   if (ptr_chr) {
-//     e_size_t need_len = e_strlen(needle);
-//     if (!need_len)
-//       ptr_chr = (char*)haystack;
-//     else
-//       if (e_strncmp(ptr_chr, needle, need_len))
-//         ptr_chr = e_strstr(ptr_chr++, needle);
 //   }
 //   return ptr_chr;
 // }

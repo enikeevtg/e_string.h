@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strncat.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Appending the string pointed to, by src to the end

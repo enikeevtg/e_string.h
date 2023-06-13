@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strlen.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Computing the length of the string str up to

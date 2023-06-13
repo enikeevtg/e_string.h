@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_insert.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Creating a new string in which a specified string (str) is inserted

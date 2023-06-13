@@ -1,6 +1,6 @@
 /**
  * src/e_string/e_strcspn.c
- * (c) T. Enikeev
+ * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
  * @brief Calculating the length of the initial segment of str1
