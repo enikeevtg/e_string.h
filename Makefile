@@ -6,40 +6,54 @@ AR = ar rs
 RAN = ranlib
 RM = rm -rf
 MK = mkdir -p
+LEAKS = CK_FORK=no leaks --atExit --
+OS := $(shell uname)
+ifeq ($(OS), Darwin)
+	REPORT_OPEN = open
+else ifeq ($(OS), Linux)
+	REPORT_OPEN = xdg-open
+endif
 
 # utilities options
 CF = -Wall -Werror -Wextra
 STD = -std=c11 -pedantic
 ASAN = -g -fsanitize=address
+ifeq ($(OS), Darwin)
+	TEST_FLAGS = -lcheck
+else ifeq ($(OS), Linux)
+	TEST_FLAGS = -lcheck -lsubunit -lm -lrt -lpthread -D_GNU_SOURCE
+endif
+GCOV_FLAGS = -fprofile-arcs -ftest-coverage
 
 # filenames
-SRCDIR = ./e_string_src/
-OBJDIR = ./e_string_obj/
-SRC = $(wildcard $(SRCDIR)*.c)
-OBJ = $(patsubst $(SRCDIR)%.c, $(OBJDIR)%.o, $(SRC))
 TARGET = e_string.a
-
-TEST_OBJDIR = ./test_e_string_obj/
-TEST_OBJ = $(patsubst $(SRCDIR)%.c, $(TEST_OBJDIR)%.o, $(SRC))
-TEST = libtest
+TEST_EXE = e_string_test
+SRC_DIR = ./e_string_src/
+OBJ_DIR = ./e_string_obj/
+SRC = $(wildcard $(SRC_DIR)*.c)
+OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC))
+TESTS_DIR = ./tests/
+TESTS_SRC = $(wildcard $(TESTS_DIR)*.c)
 
 
 # functions
 define library_build
 	mkdir -p $(1)
-	$(CC) $(CF) -c $(SRCDIR)%.c -o $(1)%.o
+	$(CC) $(CF) -c $(SRC_DIR)%.c -o $(1)%.o
 endef
 # function doesn't work with %
 
 func:
-	$(call library_build, $(OBJDIR))
+	$(call library_build, $(OBJ_DIR))
 
 
 all: clean test e_string.a gcov_report
 
 
 # LIBRARY BUILDING
-lib: lclean objects 
+lib: clean e_string.a
+
+e_string.a: objects 
 	@$(AR) $(TARGET) $(OBJ)
 	@$(RAN) $(TARGET)
 	@echo "$(AR): creating library e_string.a \033[0;32msuccess\033[0m"
@@ -47,61 +61,43 @@ lib: lclean objects
 objects: objdir $(OBJ) obj_success
 
 objdir:
-	@mkdir -p $(OBJDIR)
+	@mkdir -p $(OBJ_DIR)
 
-$(OBJDIR)%.o: $(SRCDIR)%.c
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(CF) -c $^ -o $@
 
 obj_success:
 	@echo "$(CC): objects compilation \033[0;32msuccess\033[0m"
-# END OF LIBRARY BUILDING
 
 
-# UNIT-TESTS
-test: libtest
-	$(CC) $(CF) $(STD) $(ASAN) manual_tests.c -L. $(TARGET) -o $(TEST)
-
-libtest: lclean test_objects 
-	@$(AR) $(TARGET) $(TEST_OBJ)
-	@$(RAN) $(TARGET)
-	@echo "$(AR): creating test library e_string.a \033[0;32msuccess\033[0m"
-
-test_objects: test_objdir $(TEST_OBJ) test_obj_success
-
-$(TEST_OBJDIR)%.o: $(SRCDIR)%.c
-	@$(CC) $(CF) $(STD) $(ASAN) -c $^ -o $@
-
-test_objdir:
-	@mkdir -p $(TEST_OBJDIR)
-
-test_obj_success:
-	@echo "$(CC): test objects compilation \033[0;32msuccess\033[0m"
-# END OF UNIT-TESTS
+# TESTS
+test: lib
+	$(CC) $(CF) $(TEST_FLAGS) $(GCOV_FLAGS) $(STD) $(ASAN) $(TESTS_SRC) $(TARGET) -o $(TEST_EXE)
+	$(LEAKS) ./$(TEST_EXE)
 
 
 # TESTS COVERING REPORT
-gcov_report:
-
+gcov_report: lib
+	$(CC) $(CF) $(TEST_FLAGS) $(GCOV_FLAGS) $(STD) $(ASAN) $(TESTS_SRC) $(SRC) -o $(TEST_EXE)
+	./$(TEST_EXE)
+	@lcov -t "./gcov" -o report.info --no-external -c -d .
+	@genhtml -o report report.info
+	@gcovr -r . --html-details -o ./report/coverage_report.html
+	@$(REPORT_OPEN) ./report/index.html
+	@$(RM) *.gcno *.gcda gcov_test *.info
 
 # SERVICE
 style:
 	clang-format -style=google -n *.h *.c
-	clang-format -style=google -n $(SRCDIR)*
+	clang-format -style=google -n $(SRC_DIR)*
 
 tostyle:
 	clang-format -style=google -i *.h *.c
-	clang-format -style=google -i $(SRCDIR)*
+	clang-format -style=google -i $(SRC_DIR)*
 
-lclean:
+clean:
 	@$(RM) $(TARGET)
-	@echo "library clean: $(TARGET) \033[0;31mdeleted\033[0m"
-
-fclean:
-	@$(RM) $(OBJDIR)
-	@echo "full clean: $(OBJDIR) \033[0;31mdeleted\033[0m"
-	@$(RM) $(TEST)
-	@echo "full clean: $(TEST) \033[0;31mdeleted\033[0m"
+	@$(RM) $(OBJ_DIR)
+	@$(RM) $(TEST_EXE)
 	@$(RM) $(TARGET)
-	@echo "full clean: $(TARGET) \033[0;31mdeleted\033[0m"
 	@$(RM) *.dSYM
-	@echo "full clean: *.dSYM \033[0;31mdeleted\033[0m"
