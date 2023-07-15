@@ -3,7 +3,7 @@
  * @authors T. Enikeev
  * enikeev.tg@gmail.com
  *
- * @brief manual tests for e_string.h library 
+ * @brief manual tests for e_string.h library
  */
 
 #include <stdio.h>
@@ -149,8 +149,8 @@ int main() {
   // printf("%ld\n", max);
 
   // test e_strerror()
-  for (int i = -5; i < ERR_NUM + 1; i++) printf("\t%d\t\"%s\"\n", i,
-  e_strerror(i));
+  // for (int i = -5; i < ERR_NUM + 1; i++) printf("\t%d\t\"%s\"\n", i,
+  // e_strerror(i));
 
   /*============================================================================
       12 e_strpbrk()
@@ -184,27 +184,31 @@ int main() {
   /*============================================================================
       15 e_strtok()
   ============================================================================*/
-  // // char delim[] = " !";
-  // char delim[] = " ";
+  // char delim[] = " !";
+  char delim[] = " ";
 
-  // // char str1[] =
-  // //     "Hey guys!        W!hat\'s up! I study at \"School 21\" programming
-  // school:)"; char str1[] = "\0Hello, world!"; printf("strtok #1 result:
-  // \"%s\"\n", strtok(str1, delim)); char* dest_orig; int i = 1; while
-  // ((dest_orig = strtok(E_NULL, delim)))
-  //   printf("strtok #%d result: \"%s\"\n", ++i, dest_orig);
-  // printf("strtok #over result: \"%s\"\n", strtok(E_NULL, delim));
-  // printf("strtok #over result: \"%s\"\n", strtok(E_NULL, delim));
-  // printf("\n");
+  // char str1[] =      "Hey guys!        W!hat\'s up! I study at \"School 21\" programming  school:)";
+  char str1[] = "Hello, world!";
+  printf("strtok #1 result:  \"%s\"\n", strtok(str1, delim));
+  char* dest_orig;
+  int i = 1;
+  while ((dest_orig = strtok(E_NULL, delim)))
+    printf("strtok #%d result: \"%s\"\n", ++i, dest_orig);
+  printf("strtok #over result: \"%s\"\n", strtok(E_NULL, delim));
+  printf("strtok #over result: \"%s\"\n", strtok(E_NULL, delim));
+  printf("\n");
 
-  // // char str2[] =
-  // //     "Hey guys!        W!hat\'s up! I study at \"School 21\" programming
-  // school:)"; char str2[] = "\0Hello, world!"; printf("e_strtok #1 result:
-  // \"%s\"\n", e_strtok(E_NULL, delim)); char* dest_s21; i = 1; while
-  // ((dest_s21 = e_strtok(str2, delim)))
-  //   printf("e_strtok #%d result: \"%s\"\n", ++i, dest_s21);
-  // printf("e_strtok #over result: \"%s\"\n", e_strtok(E_NULL, delim));
-  // printf("e_strtok #over result: \"%s\"\n", e_strtok(E_NULL, delim));
+  // char str2[] =
+  //     "Hey guys!        W!hat\'s up! I study at \"School 21\" programming "
+  //     "school:)";
+  char str2[] = "Hello, world!";
+  printf("e_strtok #1 result: \"%s\"\n", e_strtok(str2, delim));
+  char* dest_s21;
+  i = 1;
+  while ((dest_s21 = e_strtok(E_NULL, delim)))
+    printf("e_strtok #%d result: \"%s\"\n", ++i, dest_s21);
+  printf("e_strtok #over result: \"%s\"\n", e_strtok(E_NULL, delim));
+  printf("e_strtok #over result: \"%s\"\n", e_strtok(E_NULL, delim));
 
   /*============================================================================
       1 to_upper()

@@ -22,13 +22,12 @@ char* e_strstr(const char* haystack, const char* needle) {
     e_size_t nee_len = e_strlen(needle);
     while (hay_len-- >= nee_len && !found) {
       found = !e_strncmp(haystack, needle, nee_len);
-      if(!found) haystack++;
+      if (!found) haystack++;
     }
     if (!found) haystack = E_NULL;
   }
   return (char*)haystack;
 }
-
 
 // WAY WITH RECURSION IS FALSE LOGIG WAY BECAUSE strstr(AJAJAXA, AJAXA)
 // char* e_strstr(const char* haystack, const char* needle) {

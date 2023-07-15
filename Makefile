@@ -28,8 +28,8 @@ GCOV_FLAGS = -fprofile-arcs -ftest-coverage
 # filenames
 TARGET = e_string.a
 TEST_EXE = e_string_test
-SRC_DIR = ./e_string_src/
-OBJ_DIR = ./e_string_obj/
+SRC_DIR = ./src/
+OBJ_DIR = ./obj/
 SRC = $(wildcard $(SRC_DIR)*.c)
 OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC))
 TESTS_DIR = ./tests/
@@ -91,7 +91,7 @@ style:
 	clang-format -style=google -n *.h *.c
 	clang-format -style=google -n $(SRC_DIR)*
 
-tostyle:
+gost:
 	clang-format -style=google -i *.h *.c
 	clang-format -style=google -i $(SRC_DIR)*
 

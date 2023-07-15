@@ -5,7 +5,7 @@
 2. - [x] [string.h Macro](#stringh-macro)
 3. - [x] [string.h Functions](#stringh-functions)
 4. - [x] [string.h Functions (old list)](#stringh-functions-old-list)
-5. - [ ] [Special string processing functions (from the String class in C#)](#special-string-processing-functions-from-the-string-class-in-c)
+5. - [x] [Special string processing functions (from the String class in C#)](#special-string-processing-functions-from-the-string-class-in-c)
 6. - [x] [Helpful Materials](#helpful-materials)
 
 ***
