@@ -188,8 +188,8 @@ int main() {
   char delim[] = " ";
 
   // char str1[] =      "Hey guys!        W!hat\'s up! I study at \"School 21\" programming  school:)";
-  char str1[] = "Hello, world!";
-  printf("strtok #1 result:  \"%s\"\n", strtok(str1, delim));
+  char str1[] = "Hello,   world!";
+  printf("strtok #1 result:  \"%s\"\n", strtok(E_NULL, delim));
   char* dest_orig;
   int i = 1;
   while ((dest_orig = strtok(E_NULL, delim)))
@@ -201,8 +201,8 @@ int main() {
   // char str2[] =
   //     "Hey guys!        W!hat\'s up! I study at \"School 21\" programming "
   //     "school:)";
-  char str2[] = "Hello, world!";
-  printf("e_strtok #1 result: \"%s\"\n", e_strtok(str2, delim));
+  char str2[] = "Hello,   world!";
+  printf("e_strtok #1 result: \"%s\"\n", e_strtok(E_NULL, delim));
   char* dest_s21;
   i = 1;
   while ((dest_s21 = e_strtok(E_NULL, delim)))
